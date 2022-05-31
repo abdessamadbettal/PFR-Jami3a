@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <title>jami3a</title>
+</head>
+
+<body>
+  <header class="sticky-top ">
+
+
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark container-fluid">
+      <div class="container-fluid d-flex flex-row">
+        <!-- ********* logo ******** -->
+        <div>
+          <a class="navbar-brand fs-3 fw-bold" href="#">
+            <!-- <img src="design/icon-jami3a.png" height="40" alt=""> -->
+            <img src="design/title-jami3a.png" height="45" alt="">
+          </a>
+        </div>
+
+        <!-- ************* modal boton ************ -->
+        <div class="justify-content-end">
+          <button type="button" class="btn btn-danger " data-bs-toggle="modal"
+            data-bs-target="#publier">Puplier</button>
+        </div>
+
+    </nav>
+    <!--****************** Modal publier *********************-->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="publier" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">partager vos documents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="card-body ">
+              <!-- <div class="text-center">
+                                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                                    style="width: 185px;" alt="logo">
+                                  <h4 class="mt-1 mb-5 pb-1">Welcome to talibe</h4>
+                                </div> -->
+              <form>
+                <!-- <p>Please login to your account</p> -->
+                <div class="form-outline ">
+                  <!-- <label class="form-label" for="form2Example11"></label> -->
+                  <input type="email" id="form2Example11" class="form-control" placeholder="télécharger fichier" />
+                </div>
+                <div class="d-flex flex-row justify-content-between mt-2">
+
+
+
+                  <div class="form-outline w-50 ">
+                    <select class="form-select" aria-label="Default select example">
+
+                      <option selected>spécialité ...</option>
+                      <option value="1">droit</option>
+                      <option value="2">économie</option>
+                      <option value="3">bilogie</option>
+                      <option value="4">chimie</option>
+                      <option value="5">physique</option>
+                      <option value="6">informatique</option>
+                    </select>
+                  </div>
+                  <div class="form-outline w-50 ">
+                    <select class="form-select" aria-label="Default select example">
+
+                      <option selected>annéé ...</option>
+                      <option value="1">2020</option>
+                      <option value="2">2021</option>
+                      <option value="3">2022</option>
+                      <option value="4">2023</option>
+                    </select>
+                  </div>
+                  <div class="form-outline w-50 ">
+                    <select class="form-select" aria-label="Default select example">
+
+                      <option selected>catégorie ...</option>
+                      <option value="1">COUR</option>
+                      <option value="2">TD</option>
+                      <option value="3">TP</option>
+                      <option value="4">EXMENS</option>
+                      <option value="4">PFE</option>
+                      <option value="4">concour</option>
+                    </select>
+                  </div>
+
+                </div>
+                <div class="d-flex justify-content-between align-items-end  mt-2">
+                  <div class="form-outline w-100">
+                    <select class="form-select" aria-label="Default select example">
+
+                      <option selected>école ...</option>
+                      <option value="1">caddy ayyad</option>
+                      <option value="2">ibn zohr</option>
+                      <option value="3">ibn tofayl</option>
+                      <option value="4">ibn msique</option>
+                    </select>
+                  </div>
+                  <div class="form-outline w-100 ">
+                    <select class="form-select" aria-label="Default select example">
+
+                      <option selected>vile ...</option>
+                      <option value="1">casablanca</option>
+                      <option value="2">agadir</option>
+                      <option value="3">knitra</option>
+                      <option value="4">safi</option>
+                    </select>
+                  </div>
+                  <div class="form-outline w-100">
+                    <select class="form-select" aria-label="Default select example">
+
+                      <option selected>niveau ...</option>
+                      <option value="1">S1</option>
+                      <option value="2">s2</option>
+                      <option value="3">s3</option>
+                      <option value="4">s4</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-outline  mt-2">
+                  <!-- <label class="form-label" for="form2Example11">Nom de proffesseur</label> -->
+                  <input type="email" id="form2Example11" class="form-control" placeholder="Nom de proffesseur" />
+                </div>
+
+                <div class="text-center pt-1  pb-1">
+                  <button class="btn btn-primary btn-block fa-lg  mb-3 w-100" type="submit"
+                    id="gradient-custom-2">Publier</button>
+                  <!-- <a class="text-muted" href="#!">Forgot password?</a> -->
+                </div>
+
+
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--*************fin de modal******************************  -->
+  </header>
+  <main>
+    <!-- !images ************************ -->
+
+    <!-- !sidebar ********************* -->
+    <div class="container d-md-flex justify-content-between">
+      <!-- Page Content  -->
+      <div class="d-flex flex-column w-100">
+        <h2 class="pt-2">Les cours de biologie</h2>
+        <div class="container-fluid bg-light  " id="bg-filter">
+          <div class="row justify-content-evenly px-3 ">
+
+            <div class="col-12 col-md-4 pt-1 py-md-2">
+              <select class="form-select border-0  " id="select-filter" aria-label="Default select example">
+                <option selected>spécialité</option>
+                <option value="1">biologie</option>
+                <option value="2">informatique</option>
+                <option value="3">physique</option>
+                <option value="4">droit</option>
+                <option value="5">economie</option>
+                <option value="6">géologie</option>
+                <option value="7">mathimatique</option>
+                <option value="8">chimie</option>
+              </select>
+            </div>
+            <div class="col-12 col-md-4 pt-1 py-md-2">
+              <select class="form-select  " id="select-filter" aria-label="Default select example">
+                <option selected>all modul</option>
+                <option value="1">génitique</option>
+                <option value="2">ecotoxicologie</option>
+                <option value="3">envirennement</option>
+                <option value="4">immunologie</option>
+                <option value="5">microbiologie</option>
+                <option value="6">embryologie</option>
+              </select>
+            </div>
+            <div class="col-12 col-md-4 pt-1 pb-1 py-md-2">
+              <select class="form-select  " id="select-filter" aria-label="Default select example">
+                <option selected>all category</option>
+                <option value="1">cours</option>
+                <option value="2">tp/td</option>
+                <option value="3">exmens</option>
+              </select>
+            </div>
+
+
+
+
+          </div>
+
+        </div>
+        <div>
+          <h1 class="text-star h3 pt-3"> biologie : cours génétique S4 </h1>
+        </div>
+
+      
+        
+
+        <!-- ? pdf card -->
+        <div class="bg-light bg-gradient mt-2 me-1 " id="card-pdf">
+          <div class="row">
+            <div class="col-4 col-md-3" style="width: 100px;">
+              <a href="">
+                <img src="design/009060088.jpg" class="w-100" alt="">
+              </a>
+
+            </div>
+            <div class="col-8 col-md-9 ">
+              <a href="" class="text-decoration-none">
+                <h2 class="fw-bold h6 mt-1 " id="title-pdf">Eucaryotes céllulaire</h2>
+              </a>
+              <div class="d-flex flex-row justify-content-between justify-content-md-around">
+                
+                <div class="">
+                  <!-- <div class="d-flex flex-row  align-items-center"> -->
+                    <!-- <i class="fa-solid fa-person-dots-from-line fa-xs m-0"></i> -->
+                    <!-- <p class="h6 mt-2 m-0 bg-danger p-1 rounded-2 text-white" style="font-size:10px;">biologie cellulaire</p> -->
+                  <!-- </div> -->
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-person-dots-from-line fa-xs  mt-1 pe-2"></i>
+                    <p class="h6 mt-2  m-0" style="font-size:10px;">khalid bettal</p>
+                  </div>
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-lines-leaning fa-xs  mt-1 pe-2"></i>
+                    <p class="h6 mt-2  m-0" style="font-size:10px;">biologie cellulaire</p>
+                  </div>
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-building-columns fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">ibn-zohr</p>
+                  </div>
+                  
+                  
+                  
+                </div>
+
+                <div class="">
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-file fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">cour</p>
+                  </div>
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-location-dot fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">agadir</p>
+                  </div>
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-calendar fa-xs mt-1 pe-2"></i> 
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">2020</p>
+                  </div>
+                </div>
+
+                
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+
+
+
+        <!-- ? pdf card -->
+        <div class="bg-light bg-gradient mt-2 me-1 " id="card-pdf">
+          <div class="row">
+            <div class="col-4 col-md-3" style="width: 100px;">
+              <a href="">
+                <img src="design/009060088.jpg" class="w-100" alt="">
+              </a>
+
+            </div>
+            <div class="col-8 col-md-9 ">
+              <a href="" class="text-decoration-none">
+                <h2 class="fw-bold h6 mt-1 " id="title-pdf">Eucaryotes céllulaire</h2>
+              </a>
+              <div class="d-flex flex-row justify-content-between justify-content-md-around">
+                
+                <div class="">
+                  <!-- <div class="d-flex flex-row  align-items-center"> -->
+                    <!-- <i class="fa-solid fa-person-dots-from-line fa-xs m-0"></i> -->
+                    <!-- <p class="h6 mt-2 m-0 bg-danger p-1 rounded-2 text-white" style="font-size:10px;">biologie cellulaire</p> -->
+                  <!-- </div> -->
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-person-dots-from-line fa-xs  mt-1 pe-2"></i>
+                    <p class="h6 mt-2  m-0" style="font-size:10px;">khalid bettal</p>
+                  </div>
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-lines-leaning fa-xs  mt-1 pe-2"></i>
+                    <p class="h6 mt-2  m-0" style="font-size:10px;">biologie cellulaire</p>
+                  </div>
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-building-columns fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">ibn-zohr</p>
+                  </div>
+                  
+                  
+                  
+                </div>
+
+                <div class="">
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-file fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">cour</p>
+                  </div>
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-location-dot fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">agadir</p>
+                  </div>
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-calendar fa-xs mt-1 pe-2"></i> 
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">2020</p>
+                  </div>
+                </div>
+
+                
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+
+
+        <!-- ? pdf card -->
+        <div class="bg-light bg-gradient mt-2 me-1 " id="card-pdf">
+          <div class="row">
+            <div class="col-4 col-md-3" style="width: 100px;">
+              <a href="">
+                <img src="design/009060088.jpg" class="w-100" alt="">
+              </a>
+
+            </div>
+            <div class="col-8 col-md-9 ">
+              <a href="" class="text-decoration-none">
+                <h2 class="fw-bold h6 mt-1 " id="title-pdf">Eucaryotes céllulaire</h2>
+              </a>
+              <div class="d-flex flex-row justify-content-between justify-content-md-around">
+                
+                <div class="">
+                  <!-- <div class="d-flex flex-row  align-items-center"> -->
+                    <!-- <i class="fa-solid fa-person-dots-from-line fa-xs m-0"></i> -->
+                    <!-- <p class="h6 mt-2 m-0 bg-danger p-1 rounded-2 text-white" style="font-size:10px;">biologie cellulaire</p> -->
+                  <!-- </div> -->
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-person-dots-from-line fa-xs  mt-1 pe-2"></i>
+                    <p class="h6 mt-2  m-0" style="font-size:10px;">khalid bettal</p>
+                  </div>
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-lines-leaning fa-xs  mt-1 pe-2"></i>
+                    <p class="h6 mt-2  m-0" style="font-size:10px;">biologie cellulaire</p>
+                  </div>
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-building-columns fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">ibn-zohr</p>
+                  </div>
+                  
+                  
+                  
+                </div>
+
+                <div class="">
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-file fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">cour</p>
+                  </div>
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-location-dot fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">agadir</p>
+                  </div>
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-calendar fa-xs mt-1 pe-2"></i> 
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">2020</p>
+                  </div>
+                </div>
+
+                
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- ? pdf card -->
+        <div class="bg-light bg-gradient mt-2 me-1 " id="card-pdf">
+          <div class="row">
+            <div class="col-4 col-md-3" style="width: 100px;">
+              <a href="">
+                <img src="design/009060088.jpg" class="w-100" alt="">
+              </a>
+
+            </div>
+            <div class="col-8 col-md-9 ">
+              <a href="" class="text-decoration-none">
+                <h2 class="fw-bold h6 mt-1 " id="title-pdf">Eucaryotes céllulaire</h2>
+              </a>
+              <div class="d-flex flex-row justify-content-between justify-content-md-around">
+                
+                <div class="">
+                  <!-- <div class="d-flex flex-row  align-items-center"> -->
+                    <!-- <i class="fa-solid fa-person-dots-from-line fa-xs m-0"></i> -->
+                    <!-- <p class="h6 mt-2 m-0 bg-danger p-1 rounded-2 text-white" style="font-size:10px;">biologie cellulaire</p> -->
+                  <!-- </div> -->
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-person-dots-from-line fa-xs  mt-1 pe-2"></i>
+                    <p class="h6 mt-2  m-0" style="font-size:10px;">khalid bettal</p>
+                  </div>
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-lines-leaning fa-xs  mt-1 pe-2"></i>
+                    <p class="h6 mt-2  m-0" style="font-size:10px;">biologie cellulaire</p>
+                  </div>
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-building-columns fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">ibn-zohr</p>
+                  </div>
+                  
+                  
+                  
+                </div>
+
+                <div class="">
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-file fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">cour</p>
+                  </div>
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-location-dot fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">agadir</p>
+                  </div>
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-calendar fa-xs mt-1 pe-2"></i> 
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">2020</p>
+                  </div>
+                </div>
+
+                
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+
+
+
+        <!-- ? pdf card -->
+        <div class="bg-light bg-gradient mt-2 me-1 " id="card-pdf">
+          <div class="row">
+            <div class="col-4 col-md-3" style="width: 100px;">
+              <a href="">
+                <img src="design/009060088.jpg" class="w-100" alt="">
+              </a>
+
+            </div>
+            <div class="col-8 col-md-9 ">
+              <a href="" class="text-decoration-none">
+                <h2 class="fw-bold h6 mt-1 " id="title-pdf">Eucaryotes céllulaire</h2>
+              </a>
+              <div class="d-flex flex-row justify-content-between justify-content-md-around">
+                
+                <div class="">
+                  <!-- <div class="d-flex flex-row  align-items-center"> -->
+                    <!-- <i class="fa-solid fa-person-dots-from-line fa-xs m-0"></i> -->
+                    <!-- <p class="h6 mt-2 m-0 bg-danger p-1 rounded-2 text-white" style="font-size:10px;">biologie cellulaire</p> -->
+                  <!-- </div> -->
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-person-dots-from-line fa-xs  mt-1 pe-2"></i>
+                    <p class="h6 mt-2  m-0" style="font-size:10px;">khalid bettal</p>
+                  </div>
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-lines-leaning fa-xs  mt-1 pe-2"></i>
+                    <p class="h6 mt-2  m-0" style="font-size:10px;">biologie cellulaire</p>
+                  </div>
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-building-columns fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">ibn-zohr</p>
+                  </div>
+                  
+                  
+                  
+                </div>
+
+                <div class="">
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-file fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">cour</p>
+                  </div>
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-location-dot fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">agadir</p>
+                  </div>
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-calendar fa-xs mt-1 pe-2"></i> 
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">2020</p>
+                  </div>
+                </div>
+
+                
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ? pdf card -->
+        <div class="bg-light bg-gradient mt-2 me-1 " id="card-pdf">
+          <div class="row">
+            <div class="col-4 col-md-3" style="width: 100px;">
+              <a href="">
+                <img src="design/009060088.jpg" class="w-100" alt="">
+              </a>
+
+            </div>
+            <div class="col-8 col-md-9 ">
+              <a href="" class="text-decoration-none">
+                <h2 class="fw-bold h6 mt-1 " id="title-pdf">Eucaryotes céllulaire</h2>
+              </a>
+              <div class="d-flex flex-row justify-content-between justify-content-md-around">
+                
+                <div class="">
+                  <!-- <div class="d-flex flex-row  align-items-center"> -->
+                    <!-- <i class="fa-solid fa-person-dots-from-line fa-xs m-0"></i> -->
+                    <!-- <p class="h6 mt-2 m-0 bg-danger p-1 rounded-2 text-white" style="font-size:10px;">biologie cellulaire</p> -->
+                  <!-- </div> -->
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-person-dots-from-line fa-xs  mt-1 pe-2"></i>
+                    <p class="h6 mt-2  m-0" style="font-size:10px;">khalid bettal</p>
+                  </div>
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-lines-leaning fa-xs  mt-1 pe-2"></i>
+                    <p class="h6 mt-2  m-0" style="font-size:10px;">biologie cellulaire</p>
+                  </div>
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-building-columns fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">ibn-zohr</p>
+                  </div>
+                  
+                  
+                  
+                </div>
+
+                <div class="">
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-file fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">cour</p>
+                  </div>
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-location-dot fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">agadir</p>
+                  </div>
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-calendar fa-xs mt-1 pe-2"></i> 
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">2020</p>
+                  </div>
+                </div>
+
+                
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- ? pdf card -->
+        <div class="bg-light bg-gradient mt-2 me-1 " id="card-pdf">
+          <div class="row">
+            <div class="col-4 col-md-3" style="width: 100px;">
+              <a href="">
+                <img src="design/009060088.jpg" class="w-100" alt="">
+              </a>
+
+            </div>
+            <div class="col-8 col-md-9 ">
+              <a href="" class="text-decoration-none">
+                <h2 class="fw-bold h6 mt-1 " id="title-pdf">Eucaryotes céllulaire</h2>
+              </a>
+              <div class="d-flex flex-row justify-content-between justify-content-md-around">
+                
+                <div class="">
+                  <!-- <div class="d-flex flex-row  align-items-center"> -->
+                    <!-- <i class="fa-solid fa-person-dots-from-line fa-xs m-0"></i> -->
+                    <!-- <p class="h6 mt-2 m-0 bg-danger p-1 rounded-2 text-white" style="font-size:10px;">biologie cellulaire</p> -->
+                  <!-- </div> -->
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-person-dots-from-line fa-xs  mt-1 pe-2"></i>
+                    <p class="h6 mt-2  m-0" style="font-size:10px;">khalid bettal</p>
+                  </div>
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-lines-leaning fa-xs  mt-1 pe-2"></i>
+                    <p class="h6 mt-2  m-0" style="font-size:10px;">biologie cellulaire</p>
+                  </div>
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-building-columns fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">ibn-zohr</p>
+                  </div>
+                  
+                  
+                  
+                </div>
+
+                <div class="">
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-file fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">cour</p>
+                  </div>
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-location-dot fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">agadir</p>
+                  </div>
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-calendar fa-xs mt-1 pe-2"></i> 
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">2020</p>
+                  </div>
+                </div>
+
+                
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- ? pdf card -->
+        <div class="bg-light bg-gradient mt-2 me-1 " id="card-pdf">
+          <div class="row">
+            <div class="col-4 col-md-3" style="width: 100px;">
+              <a href="">
+                <img src="design/009060088.jpg" class="w-100" alt="">
+              </a>
+
+            </div>
+            <div class="col-8 col-md-9 ">
+              <a href="" class="text-decoration-none">
+                <h2 class="fw-bold h6 mt-1 " id="title-pdf">Eucaryotes céllulaire</h2>
+              </a>
+              <div class="d-flex flex-row justify-content-between justify-content-md-around">
+                
+                <div class="">
+                  <!-- <div class="d-flex flex-row  align-items-center"> -->
+                    <!-- <i class="fa-solid fa-person-dots-from-line fa-xs m-0"></i> -->
+                    <!-- <p class="h6 mt-2 m-0 bg-danger p-1 rounded-2 text-white" style="font-size:10px;">biologie cellulaire</p> -->
+                  <!-- </div> -->
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-person-dots-from-line fa-xs  mt-1 pe-2"></i>
+                    <p class="h6 mt-2  m-0" style="font-size:10px;">khalid bettal</p>
+                  </div>
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-lines-leaning fa-xs  mt-1 pe-2"></i>
+                    <p class="h6 mt-2  m-0" style="font-size:10px;">biologie cellulaire</p>
+                  </div>
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-building-columns fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">ibn-zohr</p>
+                  </div>
+                  
+                  
+                  
+                </div>
+
+                <div class="">
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-file fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">cour</p>
+                  </div>
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-location-dot fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">agadir</p>
+                  </div>
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-calendar fa-xs mt-1 pe-2"></i> 
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">2020</p>
+                  </div>
+                </div>
+
+                
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- ! pdf card -->
+        <div class="bg-light bg-gradient mt-2 me-1 " id="card-pdf">
+          <div class="row">
+            <div class="col-4 col-md-3" style="width: 100px;">
+              <a href="">
+                <img src="design/009060088.jpg" class="w-100" alt="">
+              </a>
+
+            </div>
+            <div class="col-8 col-md-9 ">
+              <a href="" class="text-decoration-none">
+                <h2 class="fw-bold h6 mt-1 " id="title-pdf">Eucaryotes céllulaire</h2>
+              </a>
+              <div class="d-flex flex-row justify-content-between justify-content-md-around">
+                
+                <div class="">
+                  <!-- <div class="d-flex flex-row  align-items-center"> -->
+                    <!-- <i class="fa-solid fa-person-dots-from-line fa-xs m-0"></i> -->
+                    <!-- <p class="h6 mt-2 m-0 bg-danger p-1 rounded-2 text-white" style="font-size:10px;">biologie cellulaire</p> -->
+                  <!-- </div> -->
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-person-dots-from-line fa-xs  mt-1 pe-2"></i>
+                    <p class="h6 mt-2  m-0" style="font-size:10px;">khalid bettal</p>
+                  </div>
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-lines-leaning fa-xs  mt-1 pe-2"></i>
+                    <p class="h6 mt-2  m-0" style="font-size:10px;">biologie cellulaire</p>
+                  </div>
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-building-columns fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">ibn-zohr</p>
+                  </div>
+                  
+                  
+                  
+                </div>
+
+                <div class="">
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-file fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">cour</p>
+                  </div>
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-location-dot fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">agadir</p>
+                  </div>
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-calendar fa-xs mt-1 pe-2"></i> 
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">2020</p>
+                  </div>
+                </div>
+
+                
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+
+
+        <!-- ? pdf card -->
+        <div class="bg-light bg-gradient mt-2 me-1 mb-5" id="card-pdf">
+          <div class="row">
+            <div class="col-4 col-md-3" style="width: 100px;">
+              <a href="">
+                <img src="design/009060088.jpg" class="w-100" alt="">
+              </a>
+
+            </div>
+            <div class="col-8 col-md-9 ">
+              <a href="" class="text-decoration-none">
+                <h2 class="fw-bold h6 mt-1 " id="title-pdf">Eucaryotes céllulaire</h2>
+              </a>
+              <div class="d-flex flex-row justify-content-between justify-content-md-around">
+                
+                <div class="">
+                  <!-- <div class="d-flex flex-row  align-items-center"> -->
+                    <!-- <i class="fa-solid fa-person-dots-from-line fa-xs m-0"></i> -->
+                    <!-- <p class="h6 mt-2 m-0 bg-danger p-1 rounded-2 text-white" style="font-size:10px;">biologie cellulaire</p> -->
+                  <!-- </div> -->
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-person-dots-from-line fa-xs  mt-1 pe-2"></i>
+                    <p class="h6 mt-2  m-0" style="font-size:10px;">khalid bettal</p>
+                  </div>
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-lines-leaning fa-xs  mt-1 pe-2"></i>
+                    <p class="h6 mt-2  m-0" style="font-size:10px;">biologie cellulaire</p>
+                  </div>
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-building-columns fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">ibn-zohr</p>
+                  </div>
+                  
+                  
+                  
+                </div>
+
+                <div class="">
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-file fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">cour</p>
+                  </div>
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-location-dot fa-xs mt-1 pe-2"></i>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">agadir</p>
+                  </div>
+                  
+                  <div class="d-flex flex-row  align-items-center">
+                    <i class="fa-solid fa-calendar fa-xs mt-1 pe-2"></i> 
+                    <p class="h6 mt-2 m-0" style="font-size:10px;">2020</p>
+                  </div>
+                </div>
+
+                
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <nav id="sidebar" class="">
+        <div class="p-4 pt-5 ">
+          <h5 id="sadebar-title">autres modules</h5>
+          <ul class="list-unstyled components mb-5">
+            <li>
+              <a href="#pageSubmenu1" data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false"
+                class="dropdown-toggle text-decoration-none">biologie cellulaire</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu1">
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> cours </a>
+                </li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> travaux
+                    pratique</a></li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> Travaux
+                    dirigés</a></li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> exmens</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#pageSubmenu2" data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false"
+                class="dropdown-toggle text-decoration-none">biologie animales</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu2">
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> cours </a>
+                </li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> travaux
+                    pratique</a></li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> Travaux
+                    dirigés</a></li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> exmens</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#pageSubmenu3" data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false"
+                class="dropdown-toggle text-decoration-none">immunologie</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu3">
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> cours </a>
+                </li>
+                <li><a href="#" class="text-decoration-none"> <span class="fa fa-chevron-right mr-2"></span> travaux
+                    pratique</a></li>
+                <li><a href="#" class="text-decoration-none"> <span class="fa fa-chevron-right mr-2"></span> Travaux
+                    dirigés</a></li>
+                <li><a href="#" class="text-decoration-none"> <span class="fa fa-chevron-right mr-2"></span> exmens</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#pageSubmenu4" data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false"
+                class="dropdown-toggle text-decoration-none">biologie végitale</a>
+              <ul class="collapse list-unstyled " id="pageSubmenu4">
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> cours </a>
+                </li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> travaux
+                    pratique</a></li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> Travaux
+                    dirigés</a></li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> exmens</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#pageSubmenu4" data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false"
+                class="dropdown-toggle text-decoration-none">génitique</a>
+              <ul class="collapse list-unstyled " id="pageSubmenu4">
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> cours </a>
+                </li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> travaux
+                    pratique</a></li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> Travaux
+                    dirigés</a></li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> exmens</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#pageSubmenu4" data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false"
+                class="dropdown-toggle text-decoration-none">biochimie</a>
+              <ul class="collapse list-unstyled " id="pageSubmenu4">
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> cours </a>
+                </li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> travaux
+                    pratique</a></li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> Travaux
+                    dirigés</a></li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> exmens</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#pageSubmenu4" data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false"
+                class="dropdown-toggle text-decoration-none">geologie externe</a>
+              <ul class="collapse list-unstyled " id="pageSubmenu4">
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> cours </a>
+                </li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> travaux
+                    pratique</a></li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> Travaux
+                    dirigés</a></li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> exmens</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#pageSubmenu4" data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false"
+                class="dropdown-toggle text-decoration-none">geologie interne</a>
+              <ul class="collapse list-unstyled " id="pageSubmenu4">
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> cours </a>
+                </li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> travaux
+                    pratique</a></li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> Travaux
+                    dirigés</a></li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> exmens</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#pageSubmenu4" data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false"
+                class="dropdown-toggle text-decoration-none">geologie génerale</a>
+              <ul class="collapse list-unstyled " id="pageSubmenu4">
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> cours </a>
+                </li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> travaux
+                    pratique</a></li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> Travaux
+                    dirigés</a></li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> exmens</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#pageSubmenu4" data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false"
+                class="dropdown-toggle text-decoration-none">ecotixocolgie</a>
+              <ul class="collapse list-unstyled " id="pageSubmenu4">
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> cours </a>
+                </li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> travaux
+                    pratique</a></li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> Travaux
+                    dirigés</a></li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> exmens</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#pageSubmenu4" data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false"
+                class="dropdown-toggle text-decoration-none">envirennement</a>
+              <ul class="collapse list-unstyled " id="pageSubmenu4">
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> cours </a>
+                </li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> travaux
+                    pratique</a></li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> Travaux
+                    dirigés</a></li>
+                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> exmens</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="mb-5">
+            <h5 id="sadebar-title">d'autres spécialité</h5>
+            <div class="tagcloud">
+              <a href="#" class="tag-cloud-link text-decoration-none">économie</a>
+              <a href="#" class="tag-cloud-link text-decoration-none">droit arab</a>
+              <a href="#" class="tag-cloud-link text-decoration-none">geographie</a>
+              <a href="#" class="tag-cloud-link text-decoration-none">biologie</a>
+              <a href="#" class="tag-cloud-link text-decoration-none">mathematique</a>
+              <a href="#" class="tag-cloud-link text-decoration-none">informatique</a>
+              <a href="#" class="tag-cloud-link text-decoration-none">phisique</a>
+              <a href="#" class="tag-cloud-link text-decoration-none">chimie</a>
+            </div>
+          </div>
+          <div class="container mt-5">
+            <div class="row mt-4 bg-light bg-gradient">
+              <div class="text-center text-capitalize text-dark h6 fw-bold">Publiez vos documents</div>
+              <p class="text-center text-dark h6 p-2">📖 Vous pouvez maintenant publier vos propre documents
+                cours , TD , TP , exemns , councours etc …
+                pour aider les autres étudiants a d'autres facultés</p>
+              <div class="d-flex justify-content-center pb-4 ">
+                <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#publier">Puplier
+                  maintenant</button>
+              </div>
+
+
+            </div>
+
+          </div>
+          <!-- <div class="mb-5">
+            <h5 id="sadebar-title">Newsletter</h5>
+            <form action="#" class="subscribe-form">
+              <div class="form-group d-flex">
+                <div class="icon"><span class="icon-paper-plane"></span></div>
+                <input type="text" class="form-control" placeholder="Enter Email Address">
+              </div>
+            </form>
+          </div> -->
+        </div>
+      </nav>
+    </div>
+    <!-- **********************introduction *********** -->
+    <!-- <div class="" id="introduction">
+      <h1 class="fs-2  text-warning text-center" id="intro1">Bienvenue dans le meilleur plaforme </h1>
+      <h1 class="fs-2 fw-bold  text-warning text-center" id="intro2">pour les étudiants ....</h1>
+    </div> -->
+    <!-- ******************* search bar************* -->
+    <!-- <section class="" id="search-bar">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <form action="">
+
+              <div class="input-group">
+                <input type="search" placeholder="councours , cours , formation ..." class="form-control"> -->
+
+    <!-- * single danger button  -->
+    <!-- <div class="btn-group d-flex flex-row ">
+                  <div>
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      Catégorie
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="#"><i class="fa-solid fa-book-open me-2"></i>Cours</a></li>
+                      <li><a class="dropdown-item" href="#"><i class="fa-solid fa-bullhorn me-2"></i>Councours</a>
+                      </li>
+                      <li><a class="dropdown-item" href="#"><i class="fa-solid fa-school-flag me-2"></i>écoles</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="input-group">
+                    <button type="submit" class="btn btn-link"><i class="fa-solid fa-magnifying-glass"></i></button>
+                  </div>
+                </div>
+
+
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </section> -->
+    <!-- <div class="container d-md-flex align-items-stretch">
+       Page Content  
+      <div class="d-flex flex-column">
+        <div id="content" class="p-4 p-md-5 pt-5">
+          <h2 class="mb-4">Sidebar #08</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</p>
+        </div>
+        
+        
+      </div> -->
+
+
+  </main>
+  <footer class="bg-dark text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
+
+        <!-- Twitter -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+
+        <!-- Google -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
+
+        <!-- Instagram -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
+
+        <!-- Linkedin -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
+
+        <!-- Github -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
+      </section>
+      <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2022 Copyright:
+      <a class="text-white" href="index.php">jami3a.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+
+  <script src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
