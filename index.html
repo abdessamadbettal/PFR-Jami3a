@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="public/css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+  <title>jami3a</title>
+</head>
+
+<body>
+  <header class="sticky-top ">
+    
+
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark container-fluid">
+      <div class="container-fluid d-flex flex-row">
+        <!-- ********* logo ******** -->
+        <div>
+          <a class="navbar-brand fs-3 fw-bold" href="#">
+            <!-- <img src="design/icon-jami3a.png" height="40" alt=""> -->
+            <img src="design/title-jami3a.png" height="45" alt="">
+          </a>
+        </div>
+
+        <!-- ************* modal boton ************ -->
+        <div class="justify-content-end">
+          <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#publier">Puplier</button>
+        </div>
+
+    </nav>
+    <!--****************** Modal publier *********************-->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="publier" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">partager vos documents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="card-body ">
+              <!-- <div class="text-center">
+                                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                                    style="width: 185px;" alt="logo">
+                                  <h4 class="mt-1 mb-5 pb-1">Welcome to talibe</h4>
+                                </div> -->
+              <form>
+                <!-- <p>Please login to your account</p> -->
+                <div class="form-outline ">
+                  <!-- <label class="form-label" for="form2Example11"></label> -->
+                  <input type="email" id="form2Example11" class="form-control" placeholder="télécharger fichier" />
+                </div>
+                <div class="d-flex flex-row justify-content-between mt-2">
+
+
+
+                  <div class="form-outline w-50 ">
+                    <select class="form-select" aria-label="Default select example">
+
+                      <option selected>spécialité ...</option>
+                      <option value="1">droit</option>
+                      <option value="2">économie</option>
+                      <option value="3">bilogie</option>
+                      <option value="4">chimie</option>
+                      <option value="5">physique</option>
+                      <option value="6">informatique</option>
+                    </select>
+                  </div>
+                  <div class="form-outline w-50 ">
+                    <select class="form-select" aria-label="Default select example">
+
+                      <option selected>annéé ...</option>
+                      <option value="1">2020</option>
+                      <option value="2">2021</option>
+                      <option value="3">2022</option>
+                      <option value="4">2023</option>
+                    </select>
+                  </div>
+                  <div class="form-outline w-50 ">
+                    <select class="form-select" aria-label="Default select example">
+
+                      <option selected>catégorie ...</option>
+                      <option value="1">COUR</option>
+                      <option value="2">TD</option>
+                      <option value="3">TP</option>
+                      <option value="4">EXMENS</option>
+                      <option value="4">PFE</option>
+                      <option value="4">concour</option>
+                    </select>
+                  </div>
+
+                </div>
+                <div class="d-flex justify-content-between align-items-end  mt-2">
+                  <div class="form-outline w-100">
+                    <select class="form-select" aria-label="Default select example">
+
+                      <option selected>école ...</option>
+                      <option value="1">caddy ayyad</option>
+                      <option value="2">ibn zohr</option>
+                      <option value="3">ibn tofayl</option>
+                      <option value="4">ibn msique</option>
+                    </select>
+                  </div>
+                  <div class="form-outline w-100 ">
+                    <select class="form-select" aria-label="Default select example">
+
+                      <option selected>vile ...</option>
+                      <option value="1">casablanca</option>
+                      <option value="2">agadir</option>
+                      <option value="3">knitra</option>
+                      <option value="4">safi</option>
+                    </select>
+                  </div>
+                  <div class="form-outline w-100">
+                    <select class="form-select" aria-label="Default select example">
+
+                      <option selected>niveau ...</option>
+                      <option value="1">S1</option>
+                      <option value="2">s2</option>
+                      <option value="3">s3</option>
+                      <option value="4">s4</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-outline  mt-2">
+                  <!-- <label class="form-label" for="form2Example11">Nom de proffesseur</label> -->
+                  <input type="email" id="form2Example11" class="form-control" placeholder="Nom de proffesseur" />
+                </div>
+
+                <div class="text-center pt-1  pb-1">
+                  <button class="btn btn-primary btn-block fa-lg  mb-3 w-100" type="submit"
+                    id="gradient-custom-2">Publier</button>
+                  <!-- <a class="text-muted" href="#!">Forgot password?</a> -->
+                </div>
+
+
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--*************fin de modal******************************  -->
+  </header>
+  <main>
+
+
+    <!-- ? puplication -->
+    <section class="container mt-5">
+      <div class="row mt-4 bg-light bg-gradient">
+        <div class="col-12 col-md-6 order-md-last order-first">
+          <img src="public/img/pizza-sharing-animate.svg" alt="" srcset="">
+      </div>
+      <div class="col-12 col-md-6 ">
+        <div class="text-center text-capitalize h2 fw-bold">Publiez vos documents</div>
+        <p class="text-center h6 p-2">📖 Vous pouvez maintenant publier vos propre documents
+          cours , TD , TP , exemns , councours etc …
+          pour aider les autres étudiants a d'autres facultés</p>
+          
+          <form>
+            <!-- <p>Please login to your account</p> -->
+            <div class="form-outline ">
+              <!-- <label class="form-label" for="form2Example11"></label> -->
+              <input type="file" id="form2Example11" class="form-control" placeholder="télécharger fichier" />
+              <input type="text" id="form2Example11" class="form-control mt-2" placeholder="nom de document" />
+            </div>
+            <div class="d-flex flex-row justify-content-between mt-2">
+
+
+
+              <div class="form-outline w-50 ">
+                <select class="form-select" aria-label="Default select example">
+
+                  <option selected>spécialité ...</option>
+                  <option value="1">droit</option>
+                  <option value="2">économie</option>
+                  <option value="3">bilogie</option>
+                  <option value="4">chimie</option>
+                  <option value="5">physique</option>
+                  <option value="6">informatique</option>
+                </select>
+              </div>
+              <div class="form-outline w-50 ">
+                <select class="form-select" aria-label="Default select example">
+
+                  <option selected>annéé ...</option>
+                  <option value="1">2020</option>
+                  <option value="2">2021</option>
+                  <option value="3">2022</option>
+                  <option value="4">2023</option>
+                </select>
+              </div>
+              <div class="form-outline w-50 ">
+                <select class="form-select" aria-label="Default select example">
+
+                  <option selected>catégorie ...</option>
+                  <option value="1">COUR</option>
+                  <option value="2">TD</option>
+                  <option value="3">TP</option>
+                  <option value="4">EXMENS</option>
+                  <option value="4">PFE</option>
+                  <option value="4">concour</option>
+                </select>
+              </div>
+
+            </div>
+            <div class="d-flex justify-content-between align-items-end  mt-2">
+              <div class="form-outline w-100">
+                <select class="form-select" aria-label="Default select example">
+
+                  <option selected>école ...</option>
+                  <option value="1">caddy ayyad</option>
+                  <option value="2">ibn zohr</option>
+                  <option value="3">ibn tofayl</option>
+                  <option value="4">ibn msique</option>
+                </select>
+              </div>
+              <div class="form-outline w-100 ">
+                <select class="form-select" aria-label="Default select example">
+
+                  <option selected>vile ...</option>
+                  <option value="1">casablanca</option>
+                  <option value="2">agadir</option>
+                  <option value="3">knitra</option>
+                  <option value="4">safi</option>
+                </select>
+              </div>
+              <div class="form-outline w-100">
+                <select class="form-select" aria-label="Default select example">
+
+                  <option selected>niveau ...</option>
+                  <option value="1">S1</option>
+                  <option value="2">s2</option>
+                  <option value="3">s3</option>
+                  <option value="4">s4</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-outline  mt-2">
+              <!-- <label class="form-label" for="form2Example11">Nom de proffesseur</label> -->
+              <input type="email" id="form2Example11" class="form-control" placeholder="Nom de proffesseur" />
+            </div>
+
+            <!-- <div class="text-center pt-1  pb-1">
+              <button class="btn btn-primary btn-block fa-lg  mb-3 w-100" type="submit"
+                id="gradient-custom-2">Publier</button>
+               <a class="text-muted" href="#!">Forgot password?</a>
+            </div> -->
+
+
+
+            <div class="d-flex justify-content-center py-3 ">
+              
+              <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#publier">Puplier
+                maintenant</button>
+            </div>
+          </form>
+
+          
+          
+        </div>
+      </div>
+
+    </section>
+
+
+
+  </main>
+  
+  <footer class="bg-dark text-center text-white mt-5">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+        <!-- Twitter -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-twitter"></i
+        ></a>
+      
+        <!-- telegram -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-telegram"></i
+        ></a>
+  
+        <!-- Instagram -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-instagram"></i
+        ></a>
+  
+        <!-- Linkedin -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+  
+        
+      </section>
+      <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2022 Copyright:
+      <a class="text-white" href="#">jami3a.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="main.js"></script>
+
+
+</body>
+
+</html>
