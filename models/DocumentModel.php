@@ -21,14 +21,17 @@ use app\core\Model;
  */
 class DocumentModel extends DbModel
 {
-    // public int $id;
-    // public string $title = '';
-    // public string $specialite = '';
-    // public string $prof = '';
-    // public string $etablissement =  '';
-    // public string $semestre = '';
-    // public string $page = '';
-    // public string $type = '';
+    public int $id;
+    public string $title = '';
+    public string $prof = '';
+    public string $ville = '';
+    public string $fk_specialite = '';
+    public string $fk_modele = '';
+    public string $semestre = '';
+    public string $etablissement = '';
+    public string $type = '';
+    public string $annees = '';
+
     
 
     public static function tableName(): string 
@@ -42,6 +45,17 @@ class DocumentModel extends DbModel
             'email' => [self::RULE_REQUIRED],
             'password' => [self::RULE_REQUIRED],
         ];
+    }
+    public function attributes(): array
+    {
+        return [ 'title' ,'type' , 'prof' , 'ville' , 'etablissement' , 'semestre' , 'annees' , 'fk_modele' , 'fk_specialite' ];
+    }
+    public function save()
+    {
+        return parent::save();
+    }
+    public function delete ($id){
+        return parent::delete ($id) ;
     }
     public function selectAll($specialite)
     {

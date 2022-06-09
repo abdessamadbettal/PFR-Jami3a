@@ -10,6 +10,10 @@ namespace app\controllers;
 
 use app\core\Controller;
 use app\models\DocumentModel;
+use app\core\Request;
+use app\core\Application;
+use app\core\Response;
+use app\core\middlewares\AuthMiddleware;
 
 /**
  * Class LibiraryController
@@ -71,6 +75,52 @@ class LibiraryController extends Controller
         }
             
     }
+    public function updateDocument(){
+        $document = new DocumentModel ();
+        $document->selectDocument($_GET['id']);
+        $document->DocumentList ;
+        // echo '<pre>';
+        // print_r($document->DocumentList[0]);
+        // echo '</pre>';
+        $document->loadData($document->DocumentList[0]);
+        echo '<pre>';
+        print_r($document);
+        echo '</pre>';
+        // exit ;
+        
+        return $this->render('updatedocument' , [
+            'model' => $document
+        ]);
+    }
+    public  function publier(Request $request)
+    {
+        $document = new DocumentModel();
+        if ($request->getMethod() === 'post') {
+            echo '<pre>';
+        print_r($request->getBody());
+        echo '</pre>';
+            $document->loadData($request->getBody());
+            $document->save() ;
+        //     echo '<pre>';
+        // print_r($document);
+        // echo '</pre>';
+        exit ;
+            Application::$app->response->redirect('/libirary');
+            Application::$app->session->setFlash('success', 'Thanks for sharing your document');
+        //     echo '<pre>';
+        // print_r($publierForm);
+        // echo '</pre>';
+        // exit ;
+        // if ($loginForm->validate() && $loginForm->login()) {
+            //     Application::$app->response->redirect('/');
+            //     return;
+            // }
+        }
+        $this->setLayout('auth');
+        return $this->render('publier' , [
+            'model' => $document
+        ]);
+    }
 
     public function document(){
         $document = new DocumentModel ();
@@ -91,6 +141,15 @@ class LibiraryController extends Controller
             'modules' => $modulesdata ,
             'specialites' => $specialitesdata
         ]);
+    }
+    public function deletDocument (){
+        if (!Application::isGuest()) {
+            $document = new DocumentModel ();
+            // print_r($document) ;
+            $document->delete($_GET['id']) ;
+            Application::$app->response->redirect('/libirary');
+            Application::$app->session->setFlash('success', 'le document est suppermer avec succes');
+        }
     }
    
 }

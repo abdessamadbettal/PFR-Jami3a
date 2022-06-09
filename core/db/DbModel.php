@@ -66,6 +66,12 @@ abstract class DbModel extends Model
         // exit ;
         return true;
     }
+    public function delete ($id){
+        $tableName = $this->tableName();
+        $statement = self::prepare("DELETE FROM $tableName WHERE document_id = $id ;" ) ;
+        $statement->execute();
+        return true;
+    }
     public function selectDocument($id)
     {
 

@@ -15,7 +15,6 @@ use app\core\middlewares\AuthMiddleware;
 use app\core\Request;
 use app\core\Response;
 use app\models\LoginForm;
-use app\models\PublierForm;
 use app\models\User;
 
 /**
@@ -37,28 +36,7 @@ class SiteController extends Controller
             'name' => 'TheCodeholic'
         ]);
     }
-    public  function publier(Request $request)
-    {
-        $publierForm = new PublierForm();
-        if ($request->getMethod() === 'post') {
-            $publierForm->loadData($request->getBody());
-            $publierForm->save() ;
-            Application::$app->response->redirect('/');
-            Application::$app->session->setFlash('success', 'Thanks for sharing your document');
-        //     echo '<pre>';
-        // print_r($publierForm);
-        // echo '</pre>';
-        // exit ;
-            // if ($loginForm->validate() && $loginForm->login()) {
-            //     Application::$app->response->redirect('/');
-            //     return;
-            // }
-        }
-        $this->setLayout('auth');
-        return $this->render('publier' , [
-            'model' => $publierForm
-        ]);
-    }
+    
     public function login(Request $request)
     {
         // echo '<pre>';

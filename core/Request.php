@@ -20,6 +20,7 @@ class Request
 
     public function getMethod()
     {
+        // ! pour devenir majusqule
         return strtolower($_SERVER['REQUEST_METHOD']);
     }
 

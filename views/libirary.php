@@ -118,8 +118,8 @@
           <?php if (!Application::isGuest()): ?>
           <div class="row mt-3 justify-content-center mb-2">
             <div class="d-flex flex-row justify-content-evenly w-75">
-              <a href=""><button class="btn btn-outline-danger btn-sm rounded-3 border-2 fw-bolder py-0 ">delete</button></a>
-              <a href=""><button class="btn btn-outline-danger btn-sm rounded-3 border-2 fw-bolder py-0 ">update</button></a>
+              <a href="/deletdocument?id=<?php echo $document['document_id'] ?>"><button class="btn btn-outline-danger btn-sm rounded-3 border-2 fw-bolder py-0 ">delete</button></a>
+              <a href="/updatedocument?id=<?php echo $document['document_id'] ?>"><button class="btn btn-outline-danger btn-sm rounded-3 border-2 fw-bolder py-0 ">update</button></a>
               <a href=""><button class="btn btn-outline-danger btn-sm rounded-3 border-2 fw-bolder py-0 ">accept</button></a>
               <a href=""><button class="btn btn-outline-danger btn-sm rounded-3 border-2 fw-bolder py-0 ">load</button></a>
             </div>
