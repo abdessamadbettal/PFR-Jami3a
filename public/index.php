@@ -43,6 +43,7 @@ $app->router->get('/contact', [SiteController::class, 'contact']);
 $app->router->get('/about', [AboutController::class, 'index']);
 // $app->router->get('/aboute', [AboutController::class, 'test']);
 $app->router->get('/libirary', [LibiraryController::class, 'index']);
+$app->router->post('/specialite', [LibiraryController::class, 'test']);
 $app->router->get('/publier', [LibiraryController::class, 'publier']);
 $app->router->post('/publier', [LibiraryController::class, 'publier']);
 $app->router->get('/document', [LibiraryController::class, 'document']);
@@ -50,6 +51,7 @@ $app->router->get('/deletdocument', [LibiraryController::class, 'deletDocument']
 $app->router->get('/updatedocument', [LibiraryController::class, 'updateDocument']);
 $app->router->get('/profile', [SiteController::class, 'profile']);
 $app->router->get('/profile/{id:\d+}/{username}', [SiteController::class, 'login']);
+$app->router->get('/profil/{id:\d+}/{username}', [SiteController::class, 'login']);
 // /profile/{id}
 // /profile/13
 // \/profile\/\w+

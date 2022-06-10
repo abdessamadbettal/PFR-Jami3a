@@ -39,6 +39,16 @@ class SiteController extends Controller
     
     public function login(Request $request)
     {
+        echo '<pre>';
+        var_dump($request)  ;
+        echo '</pre>';
+        echo $request[1]['id'] ;
+        // foreach ($request as $key => $value) {
+        //     print_r($value) ;
+        //     // echo "<br>" ;
+        //     // echo 'value :' . $value ;
+        // };
+        exit ;
         // echo '<pre>';
         // var_dump($request->getBody(), $request->getRouteParam('id'));
         // echo '</pre>';

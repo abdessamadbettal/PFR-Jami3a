@@ -26,7 +26,7 @@ class Database
         $dbDsn = $dbConfig['dsn'] ?? '';
         $username = $dbConfig['user'] ?? '';
         $password = $dbConfig['password'] ?? '';
-
+// echo "yes db connecte" ;
         $this->pdo = new \PDO($dbDsn, $username, $password);
         $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     }

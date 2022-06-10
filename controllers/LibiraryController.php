@@ -25,7 +25,15 @@ class LibiraryController extends Controller
 {
 
 
-    
+    public function test(){
+        echo 'test';
+        $document = new DocumentModel ();
+        $document->selcetSpecialites();
+        $specialitesdata = $document->SpecialitesList ;
+        return $this->render('libirary', [
+            'documents' => $specialitesdata
+        ]);
+    }
 
     public function index()
     {
@@ -86,6 +94,7 @@ class LibiraryController extends Controller
         echo '<pre>';
         print_r($document);
         echo '</pre>';
+        
         // exit ;
         
         return $this->render('updatedocument' , [
@@ -104,7 +113,10 @@ class LibiraryController extends Controller
         //     echo '<pre>';
         // print_r($document);
         // echo '</pre>';
-        exit ;
+        // exit ;
+        // echo '<pre>';
+        // print_r($document);
+        // echo '</pre>';
             Application::$app->response->redirect('/libirary');
             Application::$app->session->setFlash('success', 'Thanks for sharing your document');
         //     echo '<pre>';

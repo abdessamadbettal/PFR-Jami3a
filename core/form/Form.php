@@ -34,8 +34,8 @@ class Form
         echo '</form>';
     }
 
-    public function field(Model $model, $attribute)
+    public function field(Model $model, $attribute , $options)
     {
-        return new Field($model, $attribute);
+        return new Field($model, $attribute , $options);
     }
 }

@@ -24,7 +24,7 @@ use app\core\form\Form;
             <div class="form-outline ">
               <!-- <label class="form-label" for="form2Example11"></label> -->
               <input type="file" id="form2Example11" class="form-control" placeholder="télécharger fichier" />
-              <?php echo $Form->field($model, 'title') ;
+              <?php echo $Form->field($model, 'title' , ['input' => 'titre de document']) ;
               // echo '<pre>' ;
               // var_dump($model);
               // echo '</pre>' ;
@@ -40,7 +40,7 @@ use app\core\form\Form;
 
                   <option value="1">biologie</option>
                   <option value="2">économie</option>
-                  <option selected>spécialité ...</option>
+                  <!-- <option selected>spécialité ...</option> -->
                   <option value="droit">droit</option>
                   <option value="chimie">chimie</option>
                   <option value="physique">physique</option>
@@ -57,14 +57,16 @@ use app\core\form\Form;
                 </select>
               </div>
               <div class="form-outline w-50 ">
-                <select name="annees" class="form-select" aria-label="Default select example">
+              <?php echo $Form->field($model, 'annees' , ['select' => '']) ; ?>
+                
+                <!-- <select name="annees" class="form-select" aria-label="Default select example">
 
                   <option selected>annéé ...</option>
                   <option value="2020">2020</option>
                   <option value="2021">2021</option>
                   <option value="2022">2022</option>
                   <option value="2023">2023</option>
-                </select>
+                </select> -->
               </div>
               <div class="form-outline w-50 ">
                 <select name="type" class="form-select" aria-label="Default select example">
@@ -114,7 +116,7 @@ use app\core\form\Form;
             </div>
             <div class="form-outline  mt-2">
               <!-- <label class="form-label" for="form2Example11">Nom de proffesseur</label> -->
-              <?php echo $Form->field($model, 'prof') ; ?>
+              <?php echo $Form->field($model, 'prof' , ['input' => 'votre prof']) ; ?>
               <!-- <input type="text" name="prof" id="form2Example11" class="form-control" placeholder="Nom de proffesseur" /> -->
             </div>
 

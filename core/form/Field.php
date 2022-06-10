@@ -29,21 +29,41 @@ class Field extends BaseField
      * @param \app\core\Model $model
      * @param string          $attribute
      */
-    public function __construct(Model $model, string $attribute)
+    public function __construct(Model $model, string $attribute ,$options)
     {
         $this->type = self::TYPE_TEXT;
-        parent::__construct($model, $attribute);
+        parent::__construct($model, $attribute , $options );
     }
 
-    public function renderInput()
+    public function renderInput($option , $value ='')
     {
-        return sprintf(
-            '<input type="%s" class="form-control%s" name="%s" value="%s">',
-            $this->type,
-            $this->model->hasError($this->attribute) ? ' is-invalid' : '',
-            $this->attribute,
-            $this->model->{$this->attribute},
-        );
+        // echo '<pre>';
+        // print_r($this->model->{$this->attribute});
+        // echo '</pre>';
+        if ($option == 'input' ) {
+            return sprintf(
+                '<input type="%s" class="form-control%s" name="%s" placeholder="%s" value="%s">',
+                $this->type,
+                $this->model->hasError($this->attribute) ? ' is-invalid' : '',
+                $this->attribute,
+                $value ,
+                $this->model->{$this->attribute},
+            );
+        }
+        if ($option == 'select' ) {
+            echo '<pre>';
+            print_r($this->model->{$this->attribute});
+            echo '</pre>';
+            // echo  $this->model->{$this->attribute} ;
+            return sprintf(
+                '<option %s value="%s">%s</option>' ,
+                $this->model->{$this->attribute}? 'selected' : '' ,
+                $this->model->{$this->attribute} ,
+                $this->model->{$this->attribute}
+            ) ;
+            
+        }
+         
     }
 
     public function passwordField()

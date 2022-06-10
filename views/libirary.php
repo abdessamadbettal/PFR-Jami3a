@@ -7,37 +7,40 @@
       <div class="d-flex flex-column w-100">
         <h2 class="pt-2">Les cours de biologie</h2>
         <div class="container-fluid bg-light  " id="bg-filter">
-          <div class="row justify-content-evenly px-3 ">
+          <form action="" method="POST" name="frm">
+  <div class="row justify-content-evenly px-3 ">
 
-            <div class="col-12 col-md-4 pt-1 py-md-2">
-              <select class="form-select border-0  " id="select-filter" aria-label="Default select example">
-                <option selected>spécialité</option>
-                <?php foreach($specialites as $specialite) : ?>
-                <option value="<?= $specialite['specialite_id'] ?>"><?= $specialite['specialite'] ?></option>
-                <?php endforeach ; ?>
-              </select>
-            </div>
-            <div class="col-12 col-md-4 pt-1 py-md-2">
-              <select class="form-select  " id="select-filter" aria-label="Default select example">
-                <option selected>all modul</option>
-                <?php foreach($modules as $module) : ?>
-                <option value="<?= $module['modele_id']?>"><?= $module['modele']; ?></option>
-                <?php endforeach ; ?>
-              </select>
-            </div>
-            <div class="col-12 col-md-4 pt-1 pb-1 py-md-2">
-              <select class="form-select  " id="select-filter" aria-label="Default select example">
-                <option selected>all category</option>
-                <option value="1">cours</option>
-                <option value="2">tp/td</option>
-                <option value="3">exmens</option>
-              </select>
-            </div>
+  <div class="col-12 col-md-4 pt-1 py-md-2">
+    <select class="form-select border-0  " name="specialite" id="specialite" aria-label="Default select example">
+      <option selected>spécialité</option>
+      <?php foreach($specialites as $specialite) : ?>
+      <option value="<?= $specialite['specialite_id'] ?>"><?= $specialite['specialite'] ?></option>
+      <?php endforeach ; ?>
+    </select>
+  </div>
+  <div class="col-12 col-md-4 pt-1 py-md-2">
+    <select class="form-select  " name="modules" id="modules" aria-label="Default select example">
+      <!-- <option selected>all modul</option> -->
+      <?php /* foreach($modules as $module) : */ ?>
+      <!-- <option value="<?php /*echo $module['modele_id']?>"><?= $module['modele']; */ ?></option> -->
+      <?php /* endforeach ; */ ?>
+    </select>
+  </div>
+  <div id="category"  class="col-12 col-md-4 pt-1 pb-1 py-md-2">
+  
+    <!-- <select class="form-select" name="category" id="category" aria-label="Default select example">
+      <option selected>all category</option>
+      <option value="1">cours</option>
+      <option value="2">tp/td</option>
+      <option value="3">exmens</option>
+    </select> -->
+  </div>
+</div>
+</form>
 
 
 
 
-          </div>
 
         </div>
         <?php use app\core\Application; ?>
