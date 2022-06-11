@@ -23,8 +23,8 @@ use app\core\form\Form;
             <!-- <p>Please login to your account</p> -->
             <div class="form-outline ">
               <!-- <label class="form-label" for="form2Example11"></label> -->
-              <input type="file" id="form2Example11" class="form-control" placeholder="télécharger fichier" />
-              <?php echo $Form->field($model, 'title') ;
+              <input type="file" name="file" id="file" class="form-control"  />
+              <?php echo $Form->field($model, 'title' , ['input' => 'titre de document']) ;
               // echo '<pre>' ;
               // var_dump($model);
               // echo '</pre>' ;
@@ -67,7 +67,7 @@ use app\core\form\Form;
                 </select>
               </div>
               <div class="form-outline w-50 ">
-                <select name="type" class="form-select" aria-label="Default select example">
+                <select name="category" class="form-select" aria-label="Default select example">
 
                   <option selected>catégorie ...</option>
                   <option value="cour">COUR</option>
@@ -127,7 +127,7 @@ use app\core\form\Form;
 
             <div class="d-flex justify-content-center py-3 ">
               
-              <button type="submit" class="btn btn-danger ">Puplier
+              <button type="submit"  class="btn btn-danger ">Puplier
                 maintenant</button>
             </div>
             <?php Form::end() ?>

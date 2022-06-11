@@ -53,13 +53,29 @@ class Request
             }
         }
         if ($this->isPost()) {
+            
+                if (isset($_FILES['file'])) {
+                    // var_dump($_FILES['file']);
+                    # code...
+                    foreach ($_FILES['file'] as $key => $value) {
+                        $data[$key] = $value ;
+                    }
+                    // var_dump($data);
+                }
+                // print_r($_POST);
+            
+            // echo $_FILES["file"]["name"] ;
             foreach ($_POST as $key => $value) {
                 $data[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
             }
         }
+        // echo "<pre> data :   ";
+        // var_dump($data);
+        // echo "</pre>";
         // echo '<pre>';
         // print_r($data) ;
         // echo '</pre>';
+        // exit ;
         // exit ;
         return $data;
     }

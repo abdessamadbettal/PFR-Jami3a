@@ -22,6 +22,10 @@ use app\core\Model;
 class DocumentModel extends DbModel
 {
     public int $id;
+    public string $name = '';
+    public string $tmp_name = '';
+    public string $type = '';
+    public int $size = 0;
     public string $title = '';
     public string $prof = '';
     public string $ville = '';
@@ -29,7 +33,7 @@ class DocumentModel extends DbModel
     public string $fk_modele = '';
     public string $semestre = '';
     public string $etablissement = '';
-    public string $type = '';
+    public string $category = '';
     public string $annees = '';
 
     
@@ -48,7 +52,7 @@ class DocumentModel extends DbModel
     }
     public function attributes(): array
     {
-        return [ 'title' ,'type' , 'prof' , 'ville' , 'etablissement' , 'semestre' , 'annees' , 'fk_modele' , 'fk_specialite' ];
+        return [ 'title' ,'type' , 'prof' , 'ville' , 'etablissement' , 'semestre' , 'annees' , 'fk_modele' , 'fk_specialite' , 'name' , 'size' , 'category' , 'tmp_name' , 'id'] ;
     }
     public function save()
     {

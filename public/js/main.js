@@ -7,7 +7,7 @@ $(document).ready(function() {
     console.log(specialite_name);
     console.log('ok');
     $.ajax({
-        url: "modulesajax.php",
+        url: "/modulesajax",
         type: "GET",
         data: {
             specialite_id: specialite_id
@@ -16,7 +16,7 @@ $(document).ready(function() {
         success: function(result){
             console.log(result);
         $("#modules").html(result);
-        $('#category').html('<a  href="/libirary?specialite='+specialite_name+'"><div class="btn btn-danger w-100  rounded-3 border-2 fw-bolder  text-center " style="height: 89% ;">Rechercher</div></a>'); 
+        $('#category').html('<a  href="/libirary?specialite='+specialite_name+'"><div class="btn btn-danger w-100  rounded-3 border-2 fw-bolder  text-center " style="height: 89% ; margin-top : 1px ;">Rechercher</div></a>'); 
         }
         });
         });

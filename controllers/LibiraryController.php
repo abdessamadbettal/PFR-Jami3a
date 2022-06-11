@@ -27,12 +27,14 @@ class LibiraryController extends Controller
 
     public function test(){
         echo 'test';
-        $document = new DocumentModel ();
-        $document->selcetSpecialites();
-        $specialitesdata = $document->SpecialitesList ;
-        return $this->render('libirary', [
-            'documents' => $specialitesdata
-        ]);
+        $this->setLayout('ajax');
+        return $this->render('modulesajax');
+        // $document = new DocumentModel ();
+        // $document->selcetSpecialites();
+        // $specialitesdata = $document->SpecialitesList ;
+        // return $this->render('libirary', [
+        //     'documents' => $specialitesdata
+        // ]);
     }
 
     public function index()
@@ -105,10 +107,19 @@ class LibiraryController extends Controller
     {
         $document = new DocumentModel();
         if ($request->getMethod() === 'post') {
-            echo '<pre>';
-        print_r($request->getBody());
-        echo '</pre>';
+            // echo '<pre>';
+// print_r($_POST['submit']);
+        // print_r($request->getBody());
+        // echo '</pre>';
             $document->loadData($request->getBody());
+        //     echo '<pre>';
+        // print_r($document);
+        // echo '</pre>';    
+        $tempname= $document->tmp_name ; 
+        // echo '<br>';
+        $folder = "files/". $document->name ; 
+        move_uploaded_file($tempname, $folder) ;
+        exit ;
             $document->save() ;
         //     echo '<pre>';
         // print_r($document);
