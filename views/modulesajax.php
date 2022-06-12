@@ -2,7 +2,7 @@
 require_once "db.php";
 // echo  " test" ;
 $specialite_id = $_GET["specialite_id"];
-echo $specialite_id ;
+// echo $specialite_id ;
 $result = mysqli_query($conn,"SELECT * FROM modele where fk_specialite = $specialite_id");
 ?>
 <option value="">Select Modele</option>

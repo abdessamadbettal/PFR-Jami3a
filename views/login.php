@@ -14,13 +14,13 @@ use app\core\form\Form;
                         <?php $form = Form::begin('', 'post') ?>
                             <div class="mb-3">
                                 <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
-                                <?php echo $form->field($model, 'email') ?>
+                                <?php echo $form->field($model, 'email' , ['input' => 'votre email ...']) ?>
                                 <!-- <input type="email" class="form-control" id="exampleInputEmail1"
                                     aria-describedby="emailHelp" placeholder="email ..."> -->
                             </div>
                             <div class="mb-3">
                                 <!-- <label for="exampleInputPassword1" class="form-label">Password</label> -->
-                                <?php echo $form->field($model, 'password')->passwordField() ?>
+                                <?php echo $form->field($model, 'password' , ['input' => 'titre de document'])->passwordField() ?>
                                 <!-- <input type="password" class="form-control" id="exampleInputPassword1"
                                     placeholder="password ..."> -->
                             </div>

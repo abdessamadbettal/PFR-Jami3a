@@ -63,7 +63,7 @@
           <div class="row">
             <div class="col-4 col-md-3" style="width: 100px;">
               <a href="">
-                <img src="img/009060088.jpg" class="w-100" alt="">
+                <img src="files/<?= $document['name'] ?>" class="w-100" alt="">
               </a>
 
             </div>
@@ -102,7 +102,7 @@
                   
                   <div class="d-flex flex-row  align-items-center">
                     <i class="fa-solid fa-file fa-xs mt-1 pe-2"></i>
-                    <p class="h6 mt-2 m-0" style="font-size:10px;"><?php echo $document['type'] ?></p>
+                    <p class="h6 mt-2 m-0" style="font-size:10px;"><?php echo $document['category'] ?></p>
                   </div>
                   <div class="d-flex flex-row  align-items-center">
                     <i class="fa-solid fa-location-dot fa-xs mt-1 pe-2"></i>
@@ -123,7 +123,7 @@
             <div class="d-flex flex-row justify-content-evenly w-75">
               <a href="/deletdocument?id=<?php echo $document['document_id'] ?>"><button class="btn btn-outline-danger btn-sm rounded-3 border-2 fw-bolder py-0 ">delete</button></a>
               <a href="/updatedocument?id=<?php echo $document['document_id'] ?>"><button class="btn btn-outline-danger btn-sm rounded-3 border-2 fw-bolder py-0 ">update</button></a>
-              <a href=""><button class="btn btn-outline-danger btn-sm rounded-3 border-2 fw-bolder py-0 ">accept</button></a>
+              <a href="/acceptdocument?id=<?php echo $document['document_id'] ?>"><button class="btn btn-outline-danger btn-sm rounded-3 border-2 fw-bolder py-0 ">accept</button></a>
               <a href=""><button class="btn btn-outline-danger btn-sm rounded-3 border-2 fw-bolder py-0 ">load</button></a>
             </div>
             

@@ -41,7 +41,7 @@
 
         </div>
         <div>
-          <h1 class="text-star h3 pt-3"> <?= $document['specialite'] ?> : <?= $document['type'] ?> de <?= $document['modele'] ?> <?= $document['semestre'] ?> </h1>
+          <h1 class="text-star h3 pt-3"> <?= $document['specialite'] ?> : <?= $document['category'] ?> de <?= $document['modele'] ?> <?= $document['semestre'] ?> </h1>
         </div>
 
         <div class="bg-light container p-4" id="bg-filter">
@@ -50,7 +50,7 @@
           </div>
           <div class="row">
             <div class="col-12 col-md-4">
-              <img src="img/009060088.jpg" class="w-100" alt="">
+              <img src="files/<?= $document['name'] ?>" class="w-100" alt="">
 
             </div>
             
@@ -134,7 +134,7 @@
                     <img src="img/pie-chart.png" style="width: 20px;" class="mb-2" alt="">
                   </div>
                   <h6 class="px-3 fw-bold">taille :</h6>
-                  <h6 class="mx-auto fw-bold"><?= $document['taille'] ?></h6>
+                  <h6 class="mx-auto fw-bold"><?= $document['size'] ?></h6>
                 </div>
                 <div class="d-flex flex-row  align-items-center  px-2 pt-1 ">
                   <div>
@@ -142,7 +142,7 @@
                     <img src="img/extension.png" style="width: 20px;" class="mb-2" alt="">
                   </div>
                   <h6 class="px-3 fw-bold">extension :</h6>
-                  <h6 class="mx-auto fw-bold"><?= $document['extension'] ?></h6>
+                  <h6 class="mx-auto fw-bold"><?= $document['type'] ?></h6>
                 </div>
                 
               </div>

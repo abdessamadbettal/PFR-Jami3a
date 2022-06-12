@@ -29,12 +29,14 @@ class DocumentModel extends DbModel
     public string $title = '';
     public string $prof = '';
     public string $ville = '';
+    public  $status = false ;
     public string $fk_specialite = '';
     public string $fk_modele = '';
     public string $semestre = '';
     public string $etablissement = '';
     public string $category = '';
     public string $annees = '';
+    public string $page = '1';
 
     
 
@@ -52,18 +54,34 @@ class DocumentModel extends DbModel
     }
     public function attributes(): array
     {
-        return [ 'title' ,'type' , 'prof' , 'ville' , 'etablissement' , 'semestre' , 'annees' , 'fk_modele' , 'fk_specialite' , 'name' , 'size' , 'category' , 'tmp_name' , 'id'] ;
+        return [ 'title' ,'type' , 'prof' , 'ville' , 'etablissement' , 'semestre' , 'annees' , 'fk_modele' , 'fk_specialite' , 'name' , 'size' , 'category' , 'tmp_name' , 'page' , 'status' ] ;
     }
     public function save()
     {
         return parent::save();
     }
+    public function selectYear()
+    {
+        return parent::selectYear();
+    }
+    public function update($id)
+    {
+        return parent::update($id);
+    }
     public function delete ($id){
         return parent::delete ($id) ;
+    }
+    public function accept($id)
+    {
+        return parent::accept($id);
     }
     public function selectAll($specialite)
     {
         return parent::selectAll($specialite);
+    }
+    public function selectAllDash($specialite)
+    {
+        return parent::selectAllDash($specialite);
     }
     public function selectModules($specialite)
     {

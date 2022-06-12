@@ -44,6 +44,10 @@ abstract class BaseField
         // print_r($this->options);
         // echo '</pre>';
         foreach ($this->options as $option => $value) {
+            // echo '<pre>';
+            // print_r($option);
+            // echo '</pre>';
+            // exit ;
             // echo "$option <br>";
             // echo "$value <br>";
             // exit ;
@@ -62,6 +66,10 @@ abstract class BaseField
                 ) ;
             } 
             if ($option == 'select') {
+                echo '<pre>';
+            // var_dump($value);
+            echo '</pre>';
+            // exit ;
                 return sprintf(
                     '<div class="form-group">
                         <select name="%s" class="form-select" aria-label="Default select example">

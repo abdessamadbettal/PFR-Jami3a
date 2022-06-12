@@ -23,7 +23,7 @@ use app\core\form\Form;
             <!-- <p>Please login to your account</p> -->
             <div class="form-outline ">
               <!-- <label class="form-label" for="form2Example11"></label> -->
-              <input type="file" id="form2Example11" class="form-control" placeholder="télécharger fichier" />
+              <input type="file" name="file" id="file"  class="form-control"  />
               <?php echo $Form->field($model, 'title' , ['input' => 'titre de document']) ;
               // echo '<pre>' ;
               // var_dump($model);
@@ -36,7 +36,7 @@ use app\core\form\Form;
 
 
               <div class="form-outline w-50 ">
-                <select name="fk_specialite" class="form-select" aria-label="Default select example">
+                <select name="fk_specialite" id="specialite" class="form-select" aria-label="Default select example">
 
                   <option value="1">biologie</option>
                   <option value="2">économie</option>
@@ -48,30 +48,30 @@ use app\core\form\Form;
                 </select>
               </div>
               <div class="form-outline w-50 ">
-                <select name="fk_modele" class="form-select" aria-label="Default select example">                
-                  <option selected>modele ...</option>
+                <select name="fk_modele" id="modules" class="form-select" aria-label="Default select example">  
+                <option value="<?php echo $model->fk_modele ;  ?>" selected><?php echo $model->fk_modele ;  ?></option>              
+                  <!-- <option selected>modele ...</option>
                   <option value="1">genetique</option>
                   <option value="2">comtabilite</option>
                   <option value="3">immunologie</option>
-                  <option value="4">microbiologie</option>           
+                  <option value="4">microbiologie</option>            -->
                 </select>
               </div>
               <div class="form-outline w-50 ">
-              <?php echo $Form->field($model, 'annees' , ['select' => '']) ; ?>
+              <?php /* echo $Form->field($model, 'annees' , ['select' => "$years"]) ; */ ?>
                 
-                <!-- <select name="annees" class="form-select" aria-label="Default select example">
+                <select name="annees" class="form-select" aria-label="Default select example">
 
-                  <option selected>annéé ...</option>
-                  <option value="2020">2020</option>
-                  <option value="2021">2021</option>
-                  <option value="2022">2022</option>
-                  <option value="2023">2023</option>
-                </select> -->
+                  <option value="<?php echo $model->annees ;  ?>" selected><?php echo $model->annees ;  ?> </option>
+                  <?php foreach($years as $year) : ?>
+                    <option value="<?php  echo $year['year'] ?>"><?php echo $year['year'] ?></option>
+                 <?php endforeach ; ?> 
+                </select>
               </div>
               <div class="form-outline w-50 ">
-                <select name="type" class="form-select" aria-label="Default select example">
+                <select name="category" class="form-select" aria-label="Default select example">
 
-                  <option selected>catégorie ...</option>
+                  <option value="<?php echo $model->category ;  ?>" selected><?php echo $model->category ;  ?></option>
                   <option value="cour">COUR</option>
                   <option value="td">TD</option>
                   <option value="tp">TP</option>
@@ -83,18 +83,19 @@ use app\core\form\Form;
             <div class="d-flex justify-content-between align-items-end  mt-2">
               <div class="form-outline w-100">
                 <select name="etablissement" class="form-select" aria-label="Default select example">
-
-                  <option selected>école ...</option>
+                <option value="<?php echo $model->etablissement ;  ?>" selected><?php echo $model->etablissement ;  ?></option>
+                  <!-- <option selected>école ...</option>
                   <option value="caddy">caddy ayyad</option>
                   <option value="ibnzohr">ibn zohr</option>
                   <option value="ibntofayl">ibn tofayl</option>
-                  <option value="benmsiq">ibn msique</option>
+                  <option value="benmsiq">ibn msique</option> -->
                 </select>
               </div>
               <div class="form-outline w-100 ">
                 <select name="ville" class="form-select" aria-label="Default select example">
 
-                  <option selected>vile ...</option>
+                <option value="<?php echo $model->ville ;  ?>" selected><?php echo $model->ville ;  ?></option>
+                  <!-- <option selected>vile ...</option> -->
                   <option value="casablanca">casablanca</option>
                   <option value="adadir">agadir</option>
                   <option value="knitra">knitra</option>
@@ -104,7 +105,8 @@ use app\core\form\Form;
               <div class="form-outline w-100">
                 <select name="semestre" class="form-select" aria-label="Default select example">
 
-                  <option selected>niveau ...</option>
+                <option value="<?php echo $model->semestre ;  ?>" selected><?php echo $model->semestre ;  ?></option>
+                  <!-- <option selected>niveau ...</option> -->
                   <option value="S1">S1</option>
                   <option value="S2">s2</option>
                   <option value="S3">s3</option>

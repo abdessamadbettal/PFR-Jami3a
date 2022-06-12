@@ -53,7 +53,14 @@ class LibiraryController extends Controller
                 // echo "</pre>" ;
                 // exit ;
                 if ($_GET['specialite'] == $specialite['specialite']) {
-                    $document->selectAll($_GET['specialite']);
+                    if (Application::isGuest()) {
+                        # code...
+                        $document->selectAll($_GET['specialite']);
+                    }
+                    if (!Application::isGuest()) {
+                        # code...
+                        $document->selectAllDash($_GET['specialite']);
+                    }
                 $document->selectModules($specialite['specialite']);
                 $documentsdata = $document->DocumentList ;
                 $modulesdata = $document->ModulesList ;
@@ -85,22 +92,41 @@ class LibiraryController extends Controller
         }
             
     }
-    public function updateDocument(){
+    public function updateDocument(Request $request){
         $document = new DocumentModel ();
         $document->selectDocument($_GET['id']);
-        $document->DocumentList ;
+        // $document->DocumentList ;
+        $document->selectYear();
+        // $document->YearList ;
+        
         // echo '<pre>';
         // print_r($document->DocumentList[0]);
         // echo '</pre>';
-        $document->loadData($document->DocumentList[0]);
-        echo '<pre>';
-        print_r($document);
-        echo '</pre>';
+        // echo '<pre>';
+        // print_r($document->YearsList);
+        // echo '</pre>';
+        if ($request->getMethod() === 'post') {
+            $document->loadData($request->getBody());   
+        //    echo '<pre>';
+        //       print_r($document);
+        //       echo '</pre>';
+            //   exit ;
+            $document->type = pathinfo( $document->name, PATHINFO_EXTENSION);
+        $tempname= $document->tmp_name ; 
+        $folder = "files/". $document->name ; 
+        move_uploaded_file($tempname, $folder) ;
+        $document->update($_GET['id']) ;
+        Application::$app->response->redirect('/libirary');
+        Application::$app->session->setFlash('success', 'Thanks for sharing your document');
+        
+    }
+    $document->loadData($document->DocumentList[0]);
         
         // exit ;
         
         return $this->render('updatedocument' , [
-            'model' => $document
+            'model' => $document ,
+            'years' => $document->YearsList
         ]);
     }
     public  function publier(Request $request)
@@ -111,15 +137,17 @@ class LibiraryController extends Controller
 // print_r($_POST['submit']);
         // print_r($request->getBody());
         // echo '</pre>';
-            $document->loadData($request->getBody());
+        $document->loadData($request->getBody());
+        $document->type = pathinfo( $document->name, PATHINFO_EXTENSION);
         //     echo '<pre>';
         // print_r($document);
-        // echo '</pre>';    
+        // echo '</pre>'; 
+        // exit ;   
         $tempname= $document->tmp_name ; 
         // echo '<br>';
         $folder = "files/". $document->name ; 
         move_uploaded_file($tempname, $folder) ;
-        exit ;
+        // exit ;
             $document->save() ;
         //     echo '<pre>';
         // print_r($document);
@@ -172,6 +200,15 @@ class LibiraryController extends Controller
             $document->delete($_GET['id']) ;
             Application::$app->response->redirect('/libirary');
             Application::$app->session->setFlash('success', 'le document est suppermer avec succes');
+        }
+    }
+    public function acceptDocument (){
+        if (!Application::isGuest()) {
+            $document = new DocumentModel ();
+            // print_r($document) ;
+            $document->accept($_GET['id']) ;
+            Application::$app->response->redirect('/libirary');
+            Application::$app->session->setFlash('success', 'le document est accepte avec succes');
         }
     }
    

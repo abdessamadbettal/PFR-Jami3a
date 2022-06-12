@@ -22,6 +22,7 @@ abstract class DbModel extends Model
     public $DocumentList = [];
     public $ModulesList = [];
     public $SpecialitesList = [];
+    public $YearsList = [];
 
     abstract public static function tableName(): string;
 
@@ -43,12 +44,75 @@ abstract class DbModel extends Model
         $statement->execute();
         return true;
     }
+    public function update($id)
+    {
+        $tableName = $this->tableName();
+        $attributes = $this->attributes();
+        // $params = array_map(fn ($attr) => ":$attr", $attributes);
+        $params = array_map(fn($attr) => "$attr=:$attr", $attributes );
+        // echo "<pre>";
+        // print_r($attributes);
+        // echo "</pre>";
+        echo "<pre>";
+        print_r($params);
+        echo "</pre>";
+        // echo $this->{$attribute} ;
 
+
+        // exit ;
+        $statement = self::prepare("UPDATE $tableName SET " . implode(",", $params) . " WHERE document_id = $id");
+        foreach ($attributes as $attribute) {
+            $statement->bindValue(":$attribute", $this->{$attribute});
+        }
+        $statement->execute();
+        return true;
+    }
+
+    public function accept($id)
+    {
+        $tableName = $this->tableName();
+        
+        $statement = self::prepare("UPDATE $tableName SET status = 1 WHERE document_id = $id");
+        
+        $statement->execute();
+        return true;
+        
+    }
     public static function prepare($sql): \PDOStatement
     {
         return Application::$app->db->prepare($sql);
     }
+    public function selectYear()
+    {
+        $tableName = "years";
+        $statement = self::prepare("SELECT * FROM $tableName ;");
+        $statement->execute();
+        $this->YearsList =  $statement->fetchAll();
+        // echo "<pre>" ;
+        // var_dump($this->dataList) ;
+        // echo "</pre>" ;
+        // exit ;
+        return true;
+    }
     public function selectAll($specialite)
+    {
+// echo $specialite ;
+// exit ;
+        $tableName = $this->tableName();
+        $statement = self::prepare("SELECT * FROM $tableName 
+        INNER JOIN modele
+        ON document.fk_modele=modele.modele_id 
+        INNER JOIN specialite
+        ON modele.fk_specialite=specialite.specialite_id where specialite = '$specialite' AND status = 1 ;");
+        $statement->execute();
+        $this->DocumentList =  $statement->fetchAll();
+        // echo "<pre>" ;
+        // var_dump($this->dataList) ;
+        // echo "</pre>" ;
+        // exit ;
+        return true;
+    }
+    public function selectAllDash($specialite)
     {
 // echo $specialite ;
 // exit ;

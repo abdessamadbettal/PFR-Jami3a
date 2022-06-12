@@ -36,24 +36,24 @@ use app\core\form\Form;
 
 
               <div class="form-outline w-50 ">
-                <select name="fk_specialite" class="form-select" aria-label="Default select example">
+                <select name="fk_specialite" id="specialite" class="form-select" aria-label="Default select example">
 
                   <option value="1">biologie</option>
-                  <option value="2">économie</option>
-                  <option selected>spécialité ...</option>
+                  <option value="2">economie</option>
+                  <!-- <option selected>spécialité ...</option>
                   <option value="droit">droit</option>
                   <option value="chimie">chimie</option>
                   <option value="physique">physique</option>
-                  <option value="informatique">informatique</option>
+                  <option value="informatique">informatique</option> -->
                 </select>
               </div>
               <div class="form-outline w-50 ">
-                <select name="fk_modele" class="form-select" aria-label="Default select example">                
-                  <option selected>modele ...</option>
+                <select name="fk_modele" id="modules" class="form-select" aria-label="Default select example">                
+                  <!-- <option selected>modele ...</option>
                   <option value="1">genetique</option>
                   <option value="2">comtabilite</option>
                   <option value="3">immunologie</option>
-                  <option value="4">microbiologie</option>           
+                  <option value="4">microbiologie</option>            -->
                 </select>
               </div>
               <div class="form-outline w-50 ">
