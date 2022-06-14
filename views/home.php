@@ -5,10 +5,10 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-10 mx-auto">
-            <form action="">
+            <form action="" method="POST">
 
               <div class="input-group">
-                <input type="search" placeholder="cours, exmens, td , tp ..." class="form-control">
+                <input type="search" name="search" placeholder="cours, exmens, td , tp ..." class="form-control">
 
                 <!-- * single danger button  -->
                 <div class="btn-group d-flex flex-row ">
@@ -19,10 +19,10 @@
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                       <li><a class="dropdown-item" href="#"><i class="fa-solid fa-book-open me-2"></i>Cours</a></li>
-                      <li><a class="dropdown-item" href="#"><i class="fa-solid fa-bullhorn me-2"></i>Councours</a>
+                      <!-- <li><a class="dropdown-item" href="#"><i class="fa-solid fa-bullhorn me-2"></i>Councours</a>
                       </li>
                       <li><a class="dropdown-item" href="#"><i class="fa-solid fa-school-flag me-2"></i>écoles</a>
-                      </li>
+                      </li> -->
                     </ul>
                   </div>
                   <div class="input-group bg-gradient bg-light" id="search-button">

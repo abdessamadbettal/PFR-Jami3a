@@ -14,6 +14,7 @@ use app\core\Controller;
 use app\core\middlewares\AuthMiddleware;
 use app\core\Request;
 use app\core\Response;
+use app\models\DocumentModel;
 use app\models\LoginForm;
 use app\models\User;
 
@@ -30,11 +31,31 @@ class SiteController extends Controller
         $this->registerMiddleware(new AuthMiddleware(['profile']));
     }
 
-    public function home()
+    public function home(Request $request)
     {
-        return $this->render('home', [
-            'name' => 'TheCodeholic'
-        ]);
+    
+        if ($request->getMethod() === 'post') {
+          $document = new DocumentModel();
+          var_dump($request->getBody());
+          $search = $request->getBody()['search'];
+        //   echo $search;
+          $document->selectSearch($search , $search , $search);
+          $document->selectModules("biologie");
+            $document->selcetSpecialites();
+            $documentsdata = $document->DocumentList ;
+            $modulesdata = $document->ModulesList ;
+            $specialitesdata = $document->SpecialitesList ;
+            return $this->render('libirary', [
+                'documents' => $documentsdata ,
+                'modules' => $modulesdata ,
+                'specialites' => $specialitesdata
+            ]);
+        //   exit ;
+        }    
+        return $this->render('home');
+        // return $this->render('home', [
+        //     'name' => 'TheCodeholic'
+        // ]);
     }
     
     public function login(Request $request)

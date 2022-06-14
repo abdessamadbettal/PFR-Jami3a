@@ -134,7 +134,7 @@
                     <img src="img/pie-chart.png" style="width: 20px;" class="mb-2" alt="">
                   </div>
                   <h6 class="px-3 fw-bold">taille :</h6>
-                  <h6 class="mx-auto fw-bold"><?= $document['size'] ?></h6>
+                  <h6 class="mx-auto fw-bold"><?= $document['size']  ?></h6>
                 </div>
                 <div class="d-flex flex-row  align-items-center  px-2 pt-1 ">
                   <div>

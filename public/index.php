@@ -31,6 +31,7 @@ $app->on(Application::EVENT_BEFORE_REQUEST, function () {
 });
 
 $app->router->get('/', [SiteController::class, 'home']);
+$app->router->post('/', [SiteController::class, 'home']);
 // $app->router->get('/',  'home');
 $app->router->get('/register', [SiteController::class, 'register']);
 $app->router->post('/register', [SiteController::class, 'register']);
@@ -43,6 +44,7 @@ $app->router->get('/contact', [SiteController::class, 'contact']);
 $app->router->get('/about', [AboutController::class, 'index']);
 // $app->router->get('/aboute', [AboutController::class, 'test']);
 $app->router->get('/libirary', [LibiraryController::class, 'index']);
+$app->router->post('/libirary', [LibiraryController::class, 'index']);
 $app->router->get('/modulesajax', [LibiraryController::class, 'test']);
 // $app->router->post('/specialite', [LibiraryController::class, 'test']);
 $app->router->get('/publier', [LibiraryController::class, 'publier']);
@@ -50,6 +52,7 @@ $app->router->post('/publier', [LibiraryController::class, 'publier']);
 $app->router->get('/document', [LibiraryController::class, 'document']);
 $app->router->get('/deletdocument', [LibiraryController::class, 'deletDocument']);
 $app->router->get('/acceptdocument', [LibiraryController::class, 'acceptDocument']);
+$app->router->get('/masquerdocument', [LibiraryController::class, 'masquerDocument']);
 $app->router->get('/updatedocument', [LibiraryController::class, 'updateDocument']);
 $app->router->post('/updatedocument', [LibiraryController::class, 'updateDocument']);
 $app->router->get('/profile', [SiteController::class, 'profile']);

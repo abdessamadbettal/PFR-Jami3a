@@ -64,6 +64,10 @@ class DocumentModel extends DbModel
     {
         return parent::selectYear();
     }
+    public function selectSearch($title , $prof , $module)
+    {
+        return parent::selectSearch($title , $prof , $module);
+    }
     public function update($id)
     {
         return parent::update($id);
@@ -75,9 +79,18 @@ class DocumentModel extends DbModel
     {
         return parent::accept($id);
     }
-    public function selectAll($specialite)
+    public function masquer($id)
     {
-        return parent::selectAll($specialite);
+        return parent::masquer($id);
+    }
+    public function selectAll(...$get)
+    {
+        // echo "<pre>" ;
+        // var_dump($get) ;
+        // echo "</pre>" ;
+        // echo count($get) ;
+        // exit ;
+        return parent::selectAll(...$get);
     }
     public function selectAllDash($specialite)
     {

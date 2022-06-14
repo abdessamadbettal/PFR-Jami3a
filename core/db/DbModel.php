@@ -78,6 +78,16 @@ abstract class DbModel extends Model
         return true;
         
     }
+    public function masquer($id)
+    {
+        $tableName = $this->tableName();
+        
+        $statement = self::prepare("UPDATE $tableName SET status = 0 WHERE document_id = $id");
+        
+        $statement->execute();
+        return true;
+        
+    }
     public static function prepare($sql): \PDOStatement
     {
         return Application::$app->db->prepare($sql);
@@ -94,22 +104,76 @@ abstract class DbModel extends Model
         // exit ;
         return true;
     }
-    public function selectAll($specialite)
+    public function selectAll(...$get)
     {
+        $tableName = $this->tableName();
+        echo count($get) ;
+        // echo $get[0] ;
+        // echo $get[1] ;
+        // echo $get[2] ;
+        // exit ;
+        if (count($get) == 1 || $get[1] == '') {
+            $statement = self::prepare("SELECT * FROM $tableName 
+            INNER JOIN modele
+            ON document.fk_modele=modele.modele_id 
+            INNER JOIN specialite
+            ON modele.fk_specialite=specialite.specialite_id where specialite = '$get[0]' AND status = 1 ;");
+            $statement->execute();
+            $this->DocumentList =  $statement->fetchAll();
+            return true;
+        }
+        if (count($get) == 2) {
+            $statement = self::prepare("SELECT * FROM $tableName 
+            INNER JOIN modele
+            ON document.fk_modele=modele.modele_id 
+            INNER JOIN specialite
+            ON modele.fk_specialite=specialite.specialite_id where specialite = '$get[0]' AND modele = '$get[1]' AND status = 1 ;");
+            $statement->execute();
+            $this->DocumentList =  $statement->fetchAll();
+            return true;
+        }
+        if (count($get) == 3) {
+            $statement = self::prepare("SELECT * FROM $tableName 
+            INNER JOIN modele
+            ON document.fk_modele=modele.modele_id 
+            INNER JOIN specialite
+            ON modele.fk_specialite=specialite.specialite_id where specialite = '$get[0]' AND modele = '$get[1]' AND category = '$get[2]' AND status = 1 ;");
+            $statement->execute();
+            $this->DocumentList =  $statement->fetchAll();
+            return true;
+        }
 // echo $specialite ;
 // exit ;
+        // $tableName = $this->tableName();
+        // $statement = self::prepare("SELECT * FROM $tableName 
+        // INNER JOIN modele
+        // ON document.fk_modele=modele.modele_id 
+        // INNER JOIN specialite
+        // ON modele.fk_specialite=specialite.specialite_id where specialite = '$specialite' AND status = 1 ;");
+        // $statement->execute();
+        // $this->DocumentList =  $statement->fetchAll();
+        // // echo "<pre>" ;
+        // // var_dump($this->dataList) ;
+        // // echo "</pre>" ;
+        // // exit ;
+        // return true;
+    }
+    public function selectSearch($title , $prof , $module)
+    {
+        echo $title ;
+        echo $prof ;
+        echo $module ;
+        // OR prof like '%$prof%' OR modele like '%$module%'
+        // exit ;
         $tableName = $this->tableName();
         $statement = self::prepare("SELECT * FROM $tableName 
         INNER JOIN modele
         ON document.fk_modele=modele.modele_id 
         INNER JOIN specialite
-        ON modele.fk_specialite=specialite.specialite_id where specialite = '$specialite' AND status = 1 ;");
+        ON modele.fk_specialite=specialite.specialite_id 
+        where ( title like '%$title%' OR prof like '%$prof%' OR modele like '%$module%' ) AND `status` = 1 ;");
         $statement->execute();
         $this->DocumentList =  $statement->fetchAll();
-        // echo "<pre>" ;
-        // var_dump($this->dataList) ;
-        // echo "</pre>" ;
-        // exit ;
         return true;
     }
     public function selectAllDash($specialite)

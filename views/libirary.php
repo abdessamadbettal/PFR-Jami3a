@@ -7,14 +7,14 @@
       <div class="d-flex flex-column w-100">
         <h2 class="pt-2">Les cours de biologie</h2>
         <div class="container-fluid bg-light  " id="bg-filter">
-          <form action="" method="POST" name="frm">
+          <form action="" method="GET" name="frm">
   <div class="row justify-content-evenly px-3 ">
 
   <div class="col-12 col-md-4 pt-1 py-md-2">
     <select class="form-select border-0  " name="specialite" id="specialite" aria-label="Default select example">
       <option selected>spécialité</option>
       <?php foreach($specialites as $specialite) : ?>
-      <option value="<?= $specialite['specialite_id'] ?>"><?= $specialite['specialite'] ?></option>
+      <option value="<?= $specialite['specialite'] ?>"><?= $specialite['specialite'] ?></option>
       <?php endforeach ; ?>
     </select>
   </div>
@@ -123,7 +123,12 @@
             <div class="d-flex flex-row justify-content-evenly w-75">
               <a href="/deletdocument?id=<?php echo $document['document_id'] ?>"><button class="btn btn-outline-danger btn-sm rounded-3 border-2 fw-bolder py-0 ">delete</button></a>
               <a href="/updatedocument?id=<?php echo $document['document_id'] ?>"><button class="btn btn-outline-danger btn-sm rounded-3 border-2 fw-bolder py-0 ">update</button></a>
+              <?php if ($document['status'] == 0): ?>
               <a href="/acceptdocument?id=<?php echo $document['document_id'] ?>"><button class="btn btn-outline-danger btn-sm rounded-3 border-2 fw-bolder py-0 ">accept</button></a>
+              <?php endif ; ?>
+              <?php if ($document['status'] == 1): ?>
+              <a href="/masquerdocument?id=<?php echo $document['document_id'] ?>"><button class="btn btn-outline-danger btn-sm rounded-3 border-2 fw-bolder py-0 ">masquer</button></a>
+              <?php endif ; ?>
               <a href=""><button class="btn btn-outline-danger btn-sm rounded-3 border-2 fw-bolder py-0 ">load</button></a>
             </div>
             
@@ -151,13 +156,13 @@
               <a href="#pageSubmenu<?= $module['modele_id']; ?>" data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false"
                 class="dropdown-toggle text-decoration-none"><?= $module['modele']; ?></a>
               <ul class="collapse list-unstyled" id="pageSubmenu<?= $module['modele_id']; ?>">
-                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> cours </a>
+                <li><a href="/libirary?specialite=biologie&modules=<?= $module['modele']; ?>&category=cour" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> cours </a>
                 </li>
-                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> travaux
+                <li><a href="/libirary?specialite=biologie&modules=<?= $module['modele']; ?>&category=td" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> travaux
                     pratique</a></li>
-                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> Travaux
+                <li><a href="/libirary?specialite=biologie&modules=<?= $module['modele']; ?>&category=tp" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> Travaux
                     dirigés</a></li>
-                <li><a href="#" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> exmens</a>
+                <li><a href="/libirary?specialite=biologie&modules=<?= $module['modele']; ?>&category=examen" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> exmens</a>
                 </li>
               </ul>
             </li>
