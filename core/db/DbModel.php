@@ -19,10 +19,7 @@ use app\core\Model;
  */
 abstract class DbModel extends Model
 {
-    public $DocumentList = [];
-    public $ModulesList = [];
-    public $SpecialitesList = [];
-    public $YearsList = [];
+   
 
     abstract public static function tableName(): string;
 
@@ -107,7 +104,7 @@ abstract class DbModel extends Model
     public function selectAll(...$get)
     {
         $tableName = $this->tableName();
-        echo count($get) ;
+        // echo count($get) ;
         // echo $get[0] ;
         // echo $get[1] ;
         // echo $get[2] ;
@@ -160,9 +157,9 @@ abstract class DbModel extends Model
     }
     public function selectSearch($title , $prof , $module)
     {
-        echo $title ;
-        echo $prof ;
-        echo $module ;
+        // echo $title ;
+        // echo $prof ;
+        // echo $module ;
         // OR prof like '%$prof%' OR modele like '%$module%'
         // exit ;
         $tableName = $this->tableName();

@@ -36,7 +36,7 @@ class SiteController extends Controller
     
         if ($request->getMethod() === 'post') {
           $document = new DocumentModel();
-          var_dump($request->getBody());
+        //   var_dump($request->getBody());
           $search = $request->getBody()['search'];
         //   echo $search;
           $document->selectSearch($search , $search , $search);

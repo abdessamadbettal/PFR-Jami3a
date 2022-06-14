@@ -38,6 +38,11 @@ class DocumentModel extends DbModel
     public string $annees = '';
     public string $page = '1';
 
+    public $DocumentList = [];
+    public $ModulesList = [];
+    public $SpecialitesList = [];
+    public $YearsList = [];
+
     
 
     public static function tableName(): string 

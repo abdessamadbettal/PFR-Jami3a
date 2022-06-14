@@ -58,7 +58,7 @@ class Request
                     // var_dump($_FILES['file']);
                     # code...
                     foreach ($_FILES['file'] as $key => $value) {
-                        $data[$key] = $value ;
+                        $data[$key] = $value ; //* pour avoir le nom du fichier
                     }
                     // var_dump($data);
                 }

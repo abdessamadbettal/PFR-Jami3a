@@ -45,7 +45,7 @@ $app->router->get('/about', [AboutController::class, 'index']);
 // $app->router->get('/aboute', [AboutController::class, 'test']);
 $app->router->get('/libirary', [LibiraryController::class, 'index']);
 $app->router->post('/libirary', [LibiraryController::class, 'index']);
-$app->router->get('/modulesajax', [LibiraryController::class, 'test']);
+$app->router->get('/modulesajax', [LibiraryController::class, 'ajaxModules']);
 // $app->router->post('/specialite', [LibiraryController::class, 'test']);
 $app->router->get('/publier', [LibiraryController::class, 'publier']);
 $app->router->post('/publier', [LibiraryController::class, 'publier']);
