@@ -14,7 +14,7 @@ use app\core\Application;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 $dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__));
-$dotenv->load();
+$dotenv->load(); // load .env file
 $config = [
     'userClass' => \app\models\User::class,
     'db' => [
@@ -30,7 +30,7 @@ $app->on(Application::EVENT_BEFORE_REQUEST, function () {
     // echo "Before request from second installation";
 });
 
-$app->router->get('/', [SiteController::class, 'home']);
+$app->router->get('/', 'home'); //* callback is string
 $app->router->post('/', [SiteController::class, 'home']);
 // $app->router->get('/',  'home');
 $app->router->get('/register', [SiteController::class, 'register']);

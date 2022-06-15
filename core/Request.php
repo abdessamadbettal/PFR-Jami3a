@@ -20,17 +20,19 @@ class Request
 
     public function getMethod()
     {
-        // ! pour devenir majusqule
+        // ! pour devenir minusqule
         return strtolower($_SERVER['REQUEST_METHOD']);
     }
 
-    public function getUrl()
+    public function getUrl() //* get the url sans ??
     {
-        $path = $_SERVER['REQUEST_URI'];
-        $position = strpos($path, '?');
-        if ($position !== false) {
+        $path = $_SERVER['REQUEST_URI']; // /thecodeholic/mvc/public/home cad url 
+        $position = strpos($path, '?'); // position de la question mark
+        if ($position !== false) { // si la position de la question mark existe
             $path = substr($path, 0, $position);
         }
+        // echo $path;
+        // exit ;
         return $path;
     }
 
@@ -53,17 +55,17 @@ class Request
             }
         }
         if ($this->isPost()) {
-            
-                if (isset($_FILES['file'])) {
-                    // var_dump($_FILES['file']);
-                    # code...
-                    foreach ($_FILES['file'] as $key => $value) {
-                        $data[$key] = $value ; //* pour avoir le nom du fichier
-                    }
-                    // var_dump($data);
+
+            if (isset($_FILES['file'])) {
+                // var_dump($_FILES['file']);
+                # code...
+                foreach ($_FILES['file'] as $key => $value) {
+                    $data[$key] = $value; //* pour avoir le nom du fichier
                 }
-                // print_r($_POST);
-            
+                // var_dump($data);
+            }
+            // print_r($_POST);
+
             // echo $_FILES["file"]["name"] ;
             foreach ($_POST as $key => $value) {
                 $data[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);

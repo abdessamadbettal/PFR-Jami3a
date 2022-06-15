@@ -37,6 +37,11 @@ class LibiraryController extends Controller
 
     public function index()
     {
+        // $koko =new \PDO();
+//          $imagick = new \Imagick();
+//         readImage('abdessamadbettalcv.pdf[0]');
+//  // Writes an image
+//  $imagick->writeImages('converted_page_one.jpg');
         if (isset($_GET['specialite'])) {
             $document = new DocumentModel();
             $document->selcetSpecialites();

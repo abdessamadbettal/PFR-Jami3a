@@ -33,6 +33,7 @@ class SiteController extends Controller
 
     public function home(Request $request)
     {
+        // echo SiteController::class ;
     
         if ($request->getMethod() === 'post') {
           $document = new DocumentModel();

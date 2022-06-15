@@ -24,18 +24,35 @@ class Router
 
     public function __construct(Request $request, Response $response)
     {
+        // echo '<pre>';
+        // print_r($request);
+        // echo '</pre>';
+        // echo '<pre>';
+        // print_r($response);
+        // echo '</pre>';
+        // exit ;
         $this->request = $request;
         $this->response = $response;
     }
 
     public function get(string $url, $callback)
     {
+       
         $this->routeMap['get'][$url] = $callback;
+        // echo '<pre>';
+        // print_r($this->routeMap);
+        // echo '</pre>';
+        // exit ;
     }
 
     public function post(string $url, $callback)
     {
+
         $this->routeMap['post'][$url] = $callback;
+        // echo '<pre>';
+        // print_r($this->routeMap);
+        // echo '</pre>';
+        // exit ;
     }
 
     /**
@@ -43,7 +60,11 @@ class Router
      */
     public function getRouteMap($method): array
     {
-        return $this->routeMap[$method] ?? [];
+        // echo '<pre>';
+        // print_r($this->routeMap[$method])   ;
+        // echo '</pre>';
+        // exit ;
+        return $this->routeMap[$method] ?? []; //* if post or get not found return empty array
     }
 
     public function getCallback()
@@ -51,18 +72,24 @@ class Router
         $method = $this->request->getMethod();
         $url = $this->request->getUrl();
         // Trim slashes
-        $url = trim($url, '/');
+        $url = trim($url, '/'); // supprimer les slashs en debut et fin de url et les mettre dans $url
 
         // Get all routes for current request method
+        // echo $method ;
+        // exit ;
         $routes = $this->getRouteMap($method);
 
+        // echo '<pre>';
+        // var_dump($routes);
+        // echo '</pre>';
+        // exit ;
         $routeParams = false;
 
         // Start iterating registed routes
         foreach ($routes as $route => $callback) {
             // Trim slashes
             $route = trim($route, '/');
-            $routeNames = [];
+            $routeNames = [] ;
 
             if (!$route) {
                 continue;
@@ -94,11 +121,21 @@ class Router
 
     public function resolve()
     {
-        $method = $this->request->getMethod();
-        $url = $this->request->getUrl();
-        $callback = $this->routeMap[$method][$url] ?? false;
-        if (!$callback) {
+        $method = $this->request->getMethod(); //* get, post, put, delete
+        $url = $this->request->getUrl(); //* get url sans ??
+        $callback = $this->routeMap[$method][$url] ?? false; //* if url exist in routeMap return callback else return false
+        /* 
+        if($this->routeMap[$method][$url]){
+            $callback=$this->routeMap[$method][$url]
+        }
+        else {
+            return $callback = false
+        }
+        */
+        if (!$callback) {   // if exist url in route map
 
+            // echo "flase" ;
+            // exit ;
             $callback = $this->getCallback();
 
             if ($callback === false) {
@@ -112,16 +149,22 @@ class Router
             /**
              * @var $controller \app\core\Controller
              */
-            $controller = new $callback[0];
-            $controller->action = $callback[1];
+            $controller = new $callback[0]; //* new Controller()
+            $controller->action = $callback[1]; //* action = index function qui excite dans Controller
             Application::$app->controller = $controller;
             $middlewares = $controller->getMiddlewares();
             foreach ($middlewares as $middleware) {
                 $middleware->execute();
             }
-            $callback[0] = $controller;
+            $callback[0] = $controller; //* callback[0] = Controller class and acton function
         }
-        return call_user_func($callback, $this->request, $this->response);
+        //  $test = call_user_func($callback, $this->request, $this->response);
+        // echo '<pre>';
+        // var_dump($callback);
+        // echo '</pre>';
+        // exit;
+
+        return call_user_func($callback, $this->request, $this->response); //* excite function index in Controller
     }
 
     public function renderView($view, $params = [])

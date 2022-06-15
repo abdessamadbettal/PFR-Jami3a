@@ -22,7 +22,6 @@ class Application
     const EVENT_AFTER_REQUEST = 'afterRequest';
 
     protected array $eventListeners = [];
-
     public static Application $app;
     public static string $ROOT_DIR;
     public string $userClass;
@@ -38,7 +37,7 @@ class Application
 
     public function __construct($rootDir, $config)
     {
-        phpinfo() ;
+       
         //* $rootDir becomes the root directory of the application
         //* $config becomes the config array 
         $this->user = null; //* null because we don't know if the user is logged in yet
