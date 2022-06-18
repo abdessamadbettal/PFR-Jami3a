@@ -3,7 +3,7 @@
 <?php
     foreach($modules as $modele) :
 ?>
-<option value="<?php echo $modele["modele"];?>"><?php echo $modele["modele"];?></option>
+<option value="<?php echo $modele["modele_id"];?>"><?php echo $modele["modele"];?></option>
 <?php
     endforeach;
 ?>

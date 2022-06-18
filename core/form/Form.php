@@ -19,12 +19,16 @@ use app\core\Model;
  */
 class Form
 {
-    public static function begin($action, $method, $options = [])
+    public static function begin($action, $method, $options = []) 
     {
         $attributes = [];
         foreach ($options as $key => $value) {
             $attributes[] = "$key=\"$value\"";
         }
+        // echo '<pre>';
+        // var_dump($attributes);
+        // echo '</pre>';
+        // exit ;
         echo sprintf('<form action="%s" method="%s" %s enctype="multipart/form-data">', $action, $method, implode(" ", $attributes));
         return new Form();
     }
@@ -34,8 +38,11 @@ class Form
         echo '</form>';
     }
 
-    public function field(Model $model, $attribute , $options)
+    public function field(Model $model, $attribute , $options) //* $form->field($model, 'firstname' , ['input' => 'votre prenom'])
     {
+        // echo "<pre>";
+        // print_r($options);
+        // echo "</pre>";
         return new Field($model, $attribute , $options);
     }
 }

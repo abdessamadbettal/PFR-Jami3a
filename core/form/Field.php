@@ -44,7 +44,7 @@ class Field extends BaseField
             return sprintf(
                 '<input type="%s" class="form-control%s" name="%s" placeholder="%s" value="%s">',
                 $this->type,
-                $this->model->hasError($this->attribute) ? ' is-invalid' : '',
+                $this->model->hasError($this->attribute) ? ' is-invalid' : '', //* if has error, add class is-invalid
                 $this->attribute,
                 $value ,
                 $this->model->{$this->attribute},
@@ -69,7 +69,11 @@ class Field extends BaseField
     public function passwordField()
     {
         $this->type = self::TYPE_PASSWORD;
-        return $this;
+        // echo "<pre>";
+        // var_dump($this) ;
+        // echo "</pre>";
+        // exit ;
+        return $this; //* return this object 'model , user  , field ,
     }
 
     public function fileField()

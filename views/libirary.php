@@ -156,13 +156,13 @@
               <a href="#pageSubmenu<?= $module['modele_id']; ?>" data-toggle="collapse" data-bs-toggle="collapse" aria-expanded="false"
                 class="dropdown-toggle text-decoration-none"><?= $module['modele']; ?></a>
               <ul class="collapse list-unstyled" id="pageSubmenu<?= $module['modele_id']; ?>">
-                <li><a href="/libirary?specialite=<?= $module['specialite']; ?>&modules=<?= $module['modele']; ?>&category=cour" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> cours </a>
+                <li><a href="/libirary?specialite=<?= $module['specialite']; ?>&modules=<?= $module['modele_id']; ?>&category=cour" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> cours </a>
                 </li>
-                <li><a href="/libirary?specialite=<?= $module['specialite']; ?>&modules=<?= $module['modele']; ?>&category=td" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> travaux
+                <li><a href="/libirary?specialite=<?= $module['specialite']; ?>&modules=<?= $module['modele_id']; ?>&category=td" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> travaux
                     pratique</a></li>
-                <li><a href="/libirary?specialite=<?= $module['specialite']; ?>&modules=<?= $module['modele']; ?>&category=tp" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> Travaux
+                <li><a href="/libirary?specialite=<?= $module['specialite']; ?>&modules=<?= $module['modele_id']; ?>&category=tp" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> Travaux
                     dirigés</a></li>
-                <li><a href="/libirary?specialite=<?= $module['specialite']; ?>&modules=<?= $module['modele']; ?>&category=examen" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> exmens</a>
+                <li><a href="/libirary?specialite=<?= $module['specialite']; ?>&modules=<?= $module['modele_id']; ?>&category=examen" class="text-decoration-none"><span class="fa fa-chevron-right mr-2"></span> exmens</a>
                 </li>
               </ul>
             </li>

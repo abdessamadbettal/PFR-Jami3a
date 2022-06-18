@@ -40,7 +40,7 @@ class User extends UserModel
     public function labels(): array
     {
         return [
-            'firstname' => 'First name',
+            'firstname'=>'Firstname',
             'lastname' => 'Last name',
             'email' => 'Email',
             'password' => 'Password',

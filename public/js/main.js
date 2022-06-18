@@ -10,7 +10,7 @@ $(document).ready(function() {
         url: "/modulesajax",
         type: "GET",
         data: {
-            specialite_id: specialite_id
+            specialite_id: specialite_name
         },
         cache: false,
         success: function(result){

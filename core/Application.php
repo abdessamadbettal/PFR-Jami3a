@@ -37,6 +37,7 @@ class Application
 
     public function __construct($rootDir, $config)
     {
+        // echo $rootDir ;
        
         //* $rootDir becomes the root directory of the application
         //* $config becomes the config array 

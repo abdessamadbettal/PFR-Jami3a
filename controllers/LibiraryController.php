@@ -37,6 +37,9 @@ class LibiraryController extends Controller
 
     public function index()
     {
+        // echo "<pre>";
+        // var_dump($_SERVER);
+        // echo "</pre>";
         // $koko =new \PDO();
 //          $imagick = new \Imagick();
 //         readImage('abdessamadbettalcv.pdf[0]');
@@ -103,6 +106,11 @@ class LibiraryController extends Controller
         if (!Application::isGuest()) {
         $document = new DocumentModel();
         $document->selectDocument($_GET['id']);
+        // $document->selectModules($document->)
+        echo '<pre>';
+        var_dump($document->DocumentList[0]);
+        echo '</pre>';
+        // exit;
         $document->selectYear();
         if ($request->getMethod() === 'post') {
             $document->loadData($request->getBody());
@@ -117,6 +125,7 @@ class LibiraryController extends Controller
         $document->loadData($document->DocumentList[0]);
         return $this->render('updatedocument', [
             'model' => $document,
+            'document' => $document->DocumentList[0] ,
             'years' => $document->YearsList
         ]);
     }
@@ -131,6 +140,10 @@ class LibiraryController extends Controller
             $tempname = $document->tmp_name;
             $folder = "files/" . $document->name;
             move_uploaded_file($tempname, $folder);
+            echo "<pre>";
+            print_r($document);
+            echo "</pre>";
+            // exit ;
             $document->save();
             Application::$app->response->redirect('/libirary');
             Application::$app->session->setFlash('success', 'Thanks for sharing your document');

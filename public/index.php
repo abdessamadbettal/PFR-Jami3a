@@ -30,6 +30,8 @@ $app->on(Application::EVENT_BEFORE_REQUEST, function () {
     // echo "Before request from second installation";
 });
 
+$app->router->get('/anas', [AboutController::class, 'anas']);
+
 $app->router->get('/', 'home'); //* callback is string
 $app->router->post('/', [SiteController::class, 'home']);
 // $app->router->get('/',  'home');

@@ -48,20 +48,24 @@ class Model
         }
     }
 
-    public function attributes()
+    public function attributes() // ila ya des  propriete 'name' pour chaque input
     {
         return [];
     }
 
-    public function labels()
+    public function labels() //* il ya des des labels a chaque input
     {
         return [];
     }
 
-    public function getLabel($attribute)
+    public function getLabel($attribute)  //* donne le label de la propriete
     {
-        // echo $attribute ;
-        return $this->labels()[$attribute] ?? $attribute;
+        // echo "attribite : " . $attribute ;
+        // echo '<pre>';
+        // print_r($this->labels()[$attribute]) ;
+        // echo '</pre>';
+        // exit ;
+        return $this->labels()[$attribute] ?? $attribute; //* si le label existe on le renvoie sinon on renvoie la propriete
     }
 
     public function rules()
@@ -72,13 +76,13 @@ class Model
     public function validate()
     {
         foreach ($this->rules() as $attribute => $rules) {
-            $value = $this->{$attribute};
-            foreach ($rules as $rule) {
+            $value = $this->{$attribute}; //* value of the input
+            foreach ($rules as $rule) { //* rules of the input
                 $ruleName = $rule;
-                if (!is_string($rule)) {
-                    $ruleName = $rule[0];
+                if (!is_string($rule)) { //* if the rule is not string
+                    $ruleName = $rule[0]; //* get the name of the rule
                 }
-                if ($ruleName === self::RULE_REQUIRED && !$value) {
+                if ($ruleName === self::RULE_REQUIRED && !$value) { //* if the rule is required and the value is empty
                     $this->addErrorByRule($attribute, self::RULE_REQUIRED);
                 }
                 if ($ruleName === self::RULE_EMAIL && !filter_var($value, FILTER_VALIDATE_EMAIL)) {
@@ -145,6 +149,10 @@ class Model
 
     public function hasError($attribute)
     {
+        // echo '<pre>';
+        // print_r($this->errors) ;
+        // echo '</pre>';
+        // exit ;
         return $this->errors[$attribute] ?? false;
     }
 

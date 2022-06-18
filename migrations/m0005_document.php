@@ -23,10 +23,18 @@ class m0005_document
                 annees VARCHAR(255) NOT NULL,
                 taille VARCHAR(255) NOT NULL,
                 fk_modele INT,
+                size INT,
+                name VARCHAR(255) NOT NULL,
+                tmp_name VARCHAR(255) NOT NULL,
+                category VARCHAR(255) NOT NULL,
+                fk_specialite INT,
                 extension VARCHAR(255) NOT NULL,
-                    FOREIGN KEY (fk_modele) 
+                FOREIGN KEY (fk_modele) 
                     REFERENCES modele(modele_id) 
                     ON DELETE CASCADE,
+                FOREIGN KEY (fk_specialite) 
+                    REFERENCES specialite(specialite_id) 
+                    ON DELETE CASCADE ,
                 status TINYINT DEFAULT 0,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )  ENGINE=INNODB;";

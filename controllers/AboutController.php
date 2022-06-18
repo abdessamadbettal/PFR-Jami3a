@@ -30,6 +30,10 @@ class AboutController extends Controller
         // }
         return $this->render('about');
     }
+    public function anas(){
+        $anas = ['anas' , 'anas1' , 'anas2'];
+        return $this->render('anas' , ['name' => $anas ]);
+    }
     public function test()
     {
         $selected_colors = filter_input(

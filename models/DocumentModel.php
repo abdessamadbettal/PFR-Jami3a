@@ -31,7 +31,9 @@ class DocumentModel extends DbModel
     public string $ville = '';
     public  $status = false ;
     public string $fk_specialite = '';
+    // public string $specialite = '';
     public string $fk_modele = '';
+    // public string $modele = '';
     public string $semestre = '';
     public string $etablissement = '';
     public string $category = '';
@@ -59,7 +61,7 @@ class DocumentModel extends DbModel
     }
     public function attributes(): array
     {
-        return [ 'title' ,'type' , 'prof' , 'ville' , 'etablissement' , 'semestre' , 'annees' , 'fk_modele' , 'fk_specialite' , 'name' , 'size' , 'category' , 'tmp_name' , 'page' , 'status' ] ;
+        return [ 'title' ,'type' , 'prof' , 'ville' , 'etablissement' , 'semestre' , 'annees' , 'fk_modele' , 'fk_specialite' , 'name' , 'size' , 'category' , 'tmp_name' , 'page' , 'status'  ] ;
     }
     public function save()
     {

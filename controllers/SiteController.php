@@ -34,6 +34,7 @@ class SiteController extends Controller
     public function home(Request $request)
     {
         // echo SiteController::class ;
+        
     
         if ($request->getMethod() === 'post') {
           $document = new DocumentModel();
@@ -92,6 +93,8 @@ class SiteController extends Controller
     {
         $registerModel = new User();
         if ($request->getMethod() === 'post') {
+            // var_dump($request->getBody());
+            // exit ;
             $registerModel->loadData($request->getBody());
             if ($registerModel->validate() && $registerModel->save()) {
                 Application::$app->session->setFlash('success', 'Thanks for registering');

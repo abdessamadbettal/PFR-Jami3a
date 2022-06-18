@@ -24,11 +24,7 @@ use app\core\form\Form;
             <div class="form-outline ">
               <!-- <label class="form-label" for="form2Example11"></label> -->
               <input type="file" name="file" id="file"  class="form-control"  />
-              <?php echo $Form->field($model, 'title' , ['input' => 'titre de document']) ;
-              // echo '<pre>' ;
-              // var_dump($model);
-              // echo '</pre>' ;
-               ?>
+              <?php echo $Form->field($model, 'title' , ['input' => 'titre de document']) ;?>
               <!-- <input type="text" id="form2Example11" class="form-control mt-2" placeholder="nom de document" /> -->
             </div>
             <div class="d-flex flex-row justify-content-between mt-2">
@@ -37,19 +33,14 @@ use app\core\form\Form;
 
               <div class="form-outline w-50 ">
                 <select name="fk_specialite" id="specialite" class="form-select" aria-label="Default select example">
-
-                  <option value="1">biologie</option>
-                  <option value="2">économie</option>
-                  <!-- <option selected>spécialité ...</option> -->
-                  <option value="droit">droit</option>
-                  <option value="chimie">chimie</option>
-                  <option value="physique">physique</option>
-                  <option value="informatique">informatique</option>
+                <option value="<?php echo $model->fk_specialite ;  ?>" selected><?php echo $document['specialite'] ;  ?></option> 
+                <option value="1">biologie</option>
+                  <option value="2">economie</option>
                 </select>
               </div>
               <div class="form-outline w-50 ">
                 <select name="fk_modele" id="modules" class="form-select" aria-label="Default select example">  
-                <option value="<?php echo $model->fk_modele ;  ?>" selected><?php echo $model->fk_modele ;  ?></option>              
+                <option value="<?php echo $model->fk_modele ;  ?>" selected><?php echo $document['modele'] ;  ?></option>              
                   <!-- <option selected>modele ...</option>
                   <option value="1">genetique</option>
                   <option value="2">comtabilite</option>

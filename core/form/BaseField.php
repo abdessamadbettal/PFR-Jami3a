@@ -32,6 +32,13 @@ abstract class BaseField
      */
     public function __construct(Model $model, string $attribute, $options)
     {
+        // echo '<pre>';
+        // print_r($options);
+        // echo '</pre>';
+    // echo $model->{$attribute};
+    // exit    ;
+// echo $attribute;
+
         $this->options = $options;
         $this->model = $model;
         $this->attribute = $attribute;
@@ -60,8 +67,8 @@ abstract class BaseField
                     %s
                 </div>
             </div>',
-                    $this->model->getLabel($this->attribute),
-                    $this->renderInput($option , $value),
+                    $this->model->getLabel($this->attribute), //* first name , last name , email , password of the label
+                    $this->renderInput($option , $value), //* input
                     $this->model->getFirstError($this->attribute)
                 ) ;
             } 

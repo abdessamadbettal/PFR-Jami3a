@@ -60,24 +60,28 @@ class Router
      */
     public function getRouteMap($method): array
     {
+        // echo $method ;
         // echo '<pre>';
         // print_r($this->routeMap[$method])   ;
         // echo '</pre>';
         // exit ;
         return $this->routeMap[$method] ?? []; //* if post or get not found return empty array
+        // ?  if url exit return empty array
     }
 
-    public function getCallback()
+    public function getCallback() //£ FOR SCURITEE
     {
         $method = $this->request->getMethod();
         $url = $this->request->getUrl();
         // Trim slashes
         $url = trim($url, '/'); // supprimer les slashs en debut et fin de url et les mettre dans $url
 
+        // echo $url ;
         // Get all routes for current request method
         // echo $method ;
         // exit ;
         $routes = $this->getRouteMap($method);
+
 
         // echo '<pre>';
         // var_dump($routes);
@@ -87,18 +91,29 @@ class Router
 
         // Start iterating registed routes
         foreach ($routes as $route => $callback) {
+            // echo $route ;
+            // echo '<br>';
+            // var_dump($callback);
+            // echo '<br>';
+            // var_dump($route);
             // Trim slashes
+
             $route = trim($route, '/');
             $routeNames = [] ;
 
             if (!$route) {
                 continue;
             }
-
+// echo "<pre>";
+// print_r($routeNames);
+// echo "</pre>";
             // Find all route names from route and save in $routeNames
             if (preg_match_all('/\{(\w+)(:[^}]+)?}/', $route, $matches)) {
                 $routeNames = $matches[1];
             }
+//             echo "<pre>";
+// print_r($routeNames);
+// echo "</pre>";
 
             // Convert route name into regex pattern
             $routeRegex = "@^" . preg_replace_callback('/\{\w+(:([^}]+))?}/', fn ($m) => isset($m[2]) ? "({$m[2]})" : '(\w+)', $route) . "$@";
@@ -124,6 +139,10 @@ class Router
         $method = $this->request->getMethod(); //* get, post, put, delete
         $url = $this->request->getUrl(); //* get url sans ??
         $callback = $this->routeMap[$method][$url] ?? false; //* if url exist in routeMap return callback else return false
+    //    echo '<pre>'; 
+    //     print_r($this->routeMap);
+    //     echo '</pre>';
+    //     exit ;
         /* 
         if($this->routeMap[$method][$url]){
             $callback=$this->routeMap[$method][$url]
@@ -132,11 +151,14 @@ class Router
             return $callback = false
         }
         */
+        // echo '<pre>';
+        // print_r($callback);
+        // echo '</pre>';
         if (!$callback) {   // if exist url in route map
 
             // echo "flase" ;
             // exit ;
-            $callback = $this->getCallback();
+            $callback = $this->getCallback(); // for sucurite
 
             if ($callback === false) {
                 throw new NotFoundException();

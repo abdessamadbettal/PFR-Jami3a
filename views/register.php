@@ -12,14 +12,15 @@ $form = new Form();
 <?php $form = Form::begin('', 'post') ?>
 <div class="row">
     <div class="col">
-        <?php echo $form->field($model, 'firstname') ?>
+        <?php /* var_dump($model) */ ?>
+        <?php echo $form->field($model, 'firstname' , ['input' => 'votre prenom']) ?>
     </div>
     <div class="col">
-        <?php echo $form->field($model, 'lastname') ?>
+        <?php echo $form->field($model, 'lastname' , ['input' => 'votre nom']) ?>
     </div>
 </div>
-<?php echo $form->field($model, 'email') ?>
-<?php echo $form->field($model, 'password')->passwordField() ?>
-<?php echo $form->field($model, 'passwordConfirm')->passwordField() ?>
+<?php echo $form->field($model, 'email' , ['input' => 'votre email']) ?>
+<?php echo $form->field($model, 'password' , ['input' => 'password'])->passwordField() ?>
+<?php echo $form->field($model, 'passwordConfirm' , ['input' => 'confirmer password'])->passwordField() ?>
 <button class="btn btn-success">Submit</button>
 <?php Form::end() ?>

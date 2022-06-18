@@ -124,7 +124,7 @@ abstract class DbModel extends Model
             INNER JOIN modele
             ON document.fk_modele=modele.modele_id 
             INNER JOIN specialite
-            ON modele.fk_specialite=specialite.specialite_id where specialite = '$get[0]' AND modele = '$get[1]' AND status = 1 ;");
+            ON modele.fk_specialite=specialite.specialite_id where specialite = '$get[0]' AND modele_id = '$get[1]' AND status = 1 ;");
             $statement->execute();
             $this->DocumentList =  $statement->fetchAll();
             return true;
@@ -134,7 +134,7 @@ abstract class DbModel extends Model
             INNER JOIN modele
             ON document.fk_modele=modele.modele_id 
             INNER JOIN specialite
-            ON modele.fk_specialite=specialite.specialite_id where specialite = '$get[0]' AND modele = '$get[1]' AND category = '$get[2]' AND status = 1 ;");
+            ON modele.fk_specialite=specialite.specialite_id where specialite = '$get[0]' AND modele_id = '$get[1]' AND category = '$get[2]' AND status = 1 ;");
             $statement->execute();
             $this->DocumentList =  $statement->fetchAll();
             return true;

@@ -21,13 +21,22 @@ class Request
     public function getMethod()
     {
         // ! pour devenir minusqule
+        // echo '<pre>';
+        // print_r($_SERVER);
+        // echo '</pre>';
+        // exit ;
         return strtolower($_SERVER['REQUEST_METHOD']);
     }
 
     public function getUrl() //* get the url sans ??
     {
+        // echo '<pre>';
+        // print_r($_SERVER);
+        // echo '</pre>';
         $path = $_SERVER['REQUEST_URI']; // /thecodeholic/mvc/public/home cad url 
         $position = strpos($path, '?'); // position de la question mark
+        // var_dump($position ) ;
+        // exit ;
         if ($position !== false) { // si la position de la question mark existe
             $path = substr($path, 0, $position);
         }
