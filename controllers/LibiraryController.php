@@ -49,6 +49,7 @@ class LibiraryController extends Controller
             $document = new DocumentModel();
             $document->selcetSpecialites();
             foreach ($document->SpecialitesList as $specialite) {
+                $document->selectModules($specialite['specialite']);
                 if ($_GET['specialite'] == $specialite['specialite']) {
                     if (isset($_GET['modules'])) {
                         if(isset($_GET['category'])){
@@ -72,7 +73,7 @@ class LibiraryController extends Controller
                     if (!Application::isGuest()) {
                         $document->selectAllDash($_GET['specialite']);
                     }
-                    $document->selectModules($specialite['specialite']);
+                    
                     return $this->render('libirary', [
                         'documents' => $document->DocumentList,
                         'modules' => $document->ModulesList,

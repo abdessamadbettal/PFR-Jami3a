@@ -279,7 +279,7 @@ body {
     transition: all 0.3s;
   }
   
-  .btn.btn-primary {
+  /* .btn.btn-primary {
     background: #fc7fb2;
     border-color: #fc7fb2;
   }
@@ -287,7 +287,7 @@ body {
   .btn.btn-primary:focus {
     background: #fc7fb2 !important;
     border-color: #fc7fb2 !important;
-  }
+  } */
   
   .footer p {
     color: rgba(255, 255, 255, 0.5);
