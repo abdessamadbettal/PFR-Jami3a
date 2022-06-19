@@ -19,7 +19,7 @@ use app\core\form\Form;
           cours , TD , TP , exemns , councours etc …
           pour aider les autres étudiants a d'autres facultés</p>
           
-          <?php $Form = Form::begin('', 'post' ) ?>
+          <?php $Form = Form::begin('', 'post' , ['id'=>"publierForm"] ) ?>
             <!-- <p>Please login to your account</p> -->
             <div class="form-outline ">
               <!-- <label class="form-label" for="form2Example11"></label> -->
@@ -37,7 +37,7 @@ use app\core\form\Form;
 
               <div class="form-outline w-50 ">
                 <select name="fk_specialite" id="specialite" class="form-select" aria-label="Default select example">
-
+                <option value="">specialite</option>
                   <option value="1">biologie</option>
                   <option value="2">economie</option>
                   <!-- <option selected>spécialité ...</option>
@@ -49,7 +49,8 @@ use app\core\form\Form;
               </div>
               <div class="form-outline w-50 ">
                 <select name="fk_modele" id="modules" class="form-select" aria-label="Default select example">                
-                  <!-- <option selected>modele ...</option>
+                <option value="">Module</option>
+                <!-- <option selected>modele ...</option>
                   <option value="1">genetique</option>
                   <option value="2">comtabilite</option>
                   <option value="3">immunologie</option>
@@ -57,9 +58,9 @@ use app\core\form\Form;
                 </select>
               </div>
               <div class="form-outline w-50 ">
-                <select name="annees" class="form-select" aria-label="Default select example">
+                <select name="annees" id="annees" class="form-select" aria-label="Default select example">
 
-                  <option selected>annéé ...</option>
+                  <option value="" selected>annéé ...</option>
                   <option value="2020">2020</option>
                   <option value="2021">2021</option>
                   <option value="2022">2022</option>
@@ -67,9 +68,9 @@ use app\core\form\Form;
                 </select>
               </div>
               <div class="form-outline w-50 ">
-                <select name="category" class="form-select" aria-label="Default select example">
+                <select name="category" id="category" class="form-select" aria-label="Default select example">
 
-                  <option selected>catégorie ...</option>
+                  <option value="" selected>catégorie ...</option>
                   <option value="cour">COUR</option>
                   <option value="td">TD</option>
                   <option value="tp">TP</option>
@@ -80,9 +81,9 @@ use app\core\form\Form;
             </div>
             <div class="d-flex justify-content-between align-items-end  mt-2">
               <div class="form-outline w-100">
-                <select name="etablissement" class="form-select" aria-label="Default select example">
+                <select name="etablissement" id="etablissement" class="form-select" aria-label="Default select example">
 
-                  <option selected>école ...</option>
+                  <option  value="" selected>école ...</option>
                   <option value="caddy">caddy ayyad</option>
                   <option value="ibnzohr">ibn zohr</option>
                   <option value="ibntofayl">ibn tofayl</option>
@@ -90,9 +91,9 @@ use app\core\form\Form;
                 </select>
               </div>
               <div class="form-outline w-100 ">
-                <select name="ville" class="form-select" aria-label="Default select example">
+                <select name="ville" id="ville" class="form-select" aria-label="Default select example">
 
-                  <option selected>vile ...</option>
+                  <option value="" selected>vile ...</option>
                   <option value="casablanca">casablanca</option>
                   <option value="adadir">agadir</option>
                   <option value="knitra">knitra</option>
@@ -100,9 +101,9 @@ use app\core\form\Form;
                 </select>
               </div>
               <div class="form-outline w-100">
-                <select name="semestre" class="form-select" aria-label="Default select example">
+                <select name="semestre" id="semestre" class="form-select" aria-label="Default select example">
 
-                  <option selected>niveau ...</option>
+                  <option value="" selected>niveau ...</option>
                   <option value="S1">S1</option>
                   <option value="S2">s2</option>
                   <option value="S3">s3</option>
@@ -114,7 +115,7 @@ use app\core\form\Form;
             </div>
             <div class="form-outline  mt-2">
               <!-- <label class="form-label" for="form2Example11">Nom de proffesseur</label> -->
-              <input type="text" name="prof" id="form2Example11" class="form-control" placeholder="Nom de proffesseur" />
+              <?php echo $Form->field($model, 'prof' , ['input' => 'nom de proffesseur']) ; ?>
             </div>
 
             <!-- <div class="text-center pt-1  pb-1">

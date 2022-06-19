@@ -140,13 +140,15 @@ class LibiraryController extends Controller
             $tempname = $document->tmp_name;
             $folder = "files/" . $document->name;
             move_uploaded_file($tempname, $folder);
-            echo "<pre>";
-            print_r($document);
-            echo "</pre>";
+            // echo "<pre>";
+            // print_r($document);
+            // echo "</pre>";
             // exit ;
-            $document->save();
+            
+            if ($document->validate() && $document->save()) {
             Application::$app->response->redirect('/libirary');
             Application::$app->session->setFlash('success', 'Thanks for sharing your document');
+            }
         }
         $this->setLayout('auth');
         return $this->render('publier', [

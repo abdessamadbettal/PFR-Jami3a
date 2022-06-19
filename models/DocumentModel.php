@@ -51,14 +51,14 @@ class DocumentModel extends DbModel
     {
         return 'document' ;
     }
+    // public function rules()
+    // {
+    //     return [
+    //         'title' => [self::RULE_REQUIRED],
+    //         'prof' => [self::RULE_REQUIRED]
+    //     ];
+    // }
 
-    public function rules()
-    {
-        return [
-            'email' => [self::RULE_REQUIRED],
-            'password' => [self::RULE_REQUIRED],
-        ];
-    }
     public function attributes(): array
     {
         return [ 'title' ,'type' , 'prof' , 'ville' , 'etablissement' , 'semestre' , 'annees' , 'fk_modele' , 'fk_specialite' , 'name' , 'size' , 'category' , 'tmp_name' , 'page' , 'status'  ] ;

@@ -21,6 +21,7 @@ class Form
 {
     public static function begin($action, $method, $options = []) 
     {
+        // echo $options ;
         $attributes = [];
         foreach ($options as $key => $value) {
             $attributes[] = "$key=\"$value\"";

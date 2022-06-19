@@ -19,7 +19,7 @@ use app\core\form\Form;
           cours , TD , TP , exemns , councours etc …
           pour aider les autres étudiants a d'autres facultés</p>
           
-          <?php $Form = Form::begin('', 'post' ) ?>
+          <?php $Form = Form::begin('', 'post' , ['id'=>"publierForm"] ) ?>
             <!-- <p>Please login to your account</p> -->
             <div class="form-outline ">
               <!-- <label class="form-label" for="form2Example11"></label> -->
@@ -34,12 +34,14 @@ use app\core\form\Form;
               <div class="form-outline w-50 ">
                 <select name="fk_specialite" id="specialite" class="form-select" aria-label="Default select example">
                 <option value="<?php echo $model->fk_specialite ;  ?>" selected><?php echo $document['specialite'] ;  ?></option> 
+                <option value="">specialite</option>
                 <option value="1">biologie</option>
                   <option value="2">economie</option>
                 </select>
               </div>
               <div class="form-outline w-50 ">
-                <select name="fk_modele" id="modules" class="form-select" aria-label="Default select example">  
+                <select name="fk_modele" id="modules" class="form-select" aria-label="Default select example"> 
+                <option value="">Module</option> 
                 <option value="<?php echo $model->fk_modele ;  ?>" selected><?php echo $document['modele'] ;  ?></option>              
                   <!-- <option selected>modele ...</option>
                   <option value="1">genetique</option>
@@ -51,7 +53,7 @@ use app\core\form\Form;
               <div class="form-outline w-50 ">
               <?php /* echo $Form->field($model, 'annees' , ['select' => "$years"]) ; */ ?>
                 
-                <select name="annees" class="form-select" aria-label="Default select example">
+                <select name="annees" id="annees"  class="form-select" aria-label="Default select example">
 
                   <option value="<?php echo $model->annees ;  ?>" selected><?php echo $model->annees ;  ?> </option>
                   <?php foreach($years as $year) : ?>
@@ -60,7 +62,7 @@ use app\core\form\Form;
                 </select>
               </div>
               <div class="form-outline w-50 ">
-                <select name="category" class="form-select" aria-label="Default select example">
+                <select name="category" id="category" class="form-select" aria-label="Default select example">
 
                   <option value="<?php echo $model->category ;  ?>" selected><?php echo $model->category ;  ?></option>
                   <option value="cour">COUR</option>
@@ -73,7 +75,7 @@ use app\core\form\Form;
             </div>
             <div class="d-flex justify-content-between align-items-end  mt-2">
               <div class="form-outline w-100">
-                <select name="etablissement" class="form-select" aria-label="Default select example">
+                <select name="etablissement"  id="etablissement" class="form-select" aria-label="Default select example">
                 <option value="<?php echo $model->etablissement ;  ?>" selected><?php echo $model->etablissement ;  ?></option>
                   <!-- <option selected>école ...</option>
                   <option value="caddy">caddy ayyad</option>
@@ -83,7 +85,7 @@ use app\core\form\Form;
                 </select>
               </div>
               <div class="form-outline w-100 ">
-                <select name="ville" class="form-select" aria-label="Default select example">
+                <select name="ville"  id="ville" class="form-select" aria-label="Default select example">
 
                 <option value="<?php echo $model->ville ;  ?>" selected><?php echo $model->ville ;  ?></option>
                   <!-- <option selected>vile ...</option> -->
@@ -94,7 +96,7 @@ use app\core\form\Form;
                 </select>
               </div>
               <div class="form-outline w-100">
-                <select name="semestre" class="form-select" aria-label="Default select example">
+                <select name="semestre" id="semestre" class="form-select" aria-label="Default select example">
 
                 <option value="<?php echo $model->semestre ;  ?>" selected><?php echo $model->semestre ;  ?></option>
                   <!-- <option selected>niveau ...</option> -->

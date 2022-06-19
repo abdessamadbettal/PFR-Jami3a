@@ -1,5 +1,5 @@
 
-<option value="">Select Modele</option>
+       <option value="">Module</option>
 <?php
     foreach($modules as $modele) :
 ?>

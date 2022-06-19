@@ -26,7 +26,7 @@
       <?php /* endforeach ; */ ?>
     </select>
   </div>
-  <div id="category"  class="col-12 col-md-4 pt-1 pb-1 py-md-2">
+  <div id="searchButton"  class="col-12 col-md-4 pt-1 pb-1 py-md-2">
   
     <!-- <select class="form-select" name="category" id="category" aria-label="Default select example">
       <option selected>all category</option>

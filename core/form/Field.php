@@ -42,7 +42,7 @@ class Field extends BaseField
         // echo '</pre>';
         if ($option == 'input' ) {
             return sprintf(
-                '<input type="%s" class="form-control%s" name="%s" placeholder="%s" value="%s">',
+                '<input type="%s" class="form-control%s" name="%s" placeholder="%s" value="%s" id="input">',
                 $this->type,
                 $this->model->hasError($this->attribute) ? ' is-invalid' : '', //* if has error, add class is-invalid
                 $this->attribute,
