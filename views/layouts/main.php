@@ -42,7 +42,8 @@
             </p>
           </li>
           <div class="justify-content-end">
-            <a href="/logout"><button type="button" class="btn btn-danger ">deconnecter</button></a>
+            <a href="/register"><button type="button" class="btn btn-danger btn-sm ">add admin</button></a>
+            <a href="/logout"><button type="button" class="btn btn-danger btn-sm ">deconnecter</button></a>
           </div>
         <?php endif; ?>
     </nav>

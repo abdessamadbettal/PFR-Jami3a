@@ -91,10 +91,11 @@ class SiteController extends Controller
 
     public function register(Request $request)
     {
+        if(!Application::isGuest()){
         $registerModel = new User();
         if ($request->getMethod() === 'post') {
             // var_dump($request->getBody());
-            // exit ;
+            // exit ;if
             $registerModel->loadData($request->getBody());
             if ($registerModel->validate() && $registerModel->save()) {
                 Application::$app->session->setFlash('success', 'Thanks for registering');
@@ -106,6 +107,7 @@ class SiteController extends Controller
         return $this->render('register', [
             'model' => $registerModel
         ]);
+    }
     }
 
     public function logout(Request $request, Response $response)

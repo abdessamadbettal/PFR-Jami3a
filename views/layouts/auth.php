@@ -34,11 +34,11 @@
         <?php else : ?>
             <li class="nav-item active">
                     <p class="nav-link" >
-                        Welcome <?php echo Application::$app->user->getDisplayName() ?> 
+                        <!-- Welcome <?php /* echo Application::$app->user->getDisplayName() */ ?>  -->
                     </p>
                 </li>
             <div class="justify-content-end">
-            <!-- <a href="/logout"><button type="button" class="btn btn-danger ">deconnecter</button></a> -->
+            <a href="/logout"><button type="button" class="btn btn-danger ">deconnecter</button></a>
         </div>
         <?php endif; ?>
     </nav>

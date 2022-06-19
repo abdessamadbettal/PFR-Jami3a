@@ -13,7 +13,7 @@ use app\core\form\Form;
         <div class="col-12 col-md-6 order-md-last order-first">
           <img src="img/pizza-sharing-animate.svg" alt="" srcset="">
       </div>
-      <div class="col-12 col-md-6 ">
+      <div class="col-12 col-md-6  ">
         <div class="text-center text-capitalize h2 fw-bold">Publiez vos documents</div>
         <p class="text-center h6 p-2">📖 Vous pouvez maintenant publier vos propre documents
           cours , TD , TP , exemns , councours etc …

@@ -1,4 +1,9 @@
+<?php use app\core\Application; ?>
+<?php   if (!Application::isGuest()): ?>
 
+  <p class="text-center fw-bold text-danger h3 pt-2"> Welcome   <?php  echo Application::$app->user->getDisplayName()  ?>  </p>  
+
+    <?php endif ?>
 
     <!-- ******************* search bar************* -->
     <section class=" mt-3" id="search-bar">

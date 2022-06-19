@@ -2,6 +2,9 @@
 
 
     <!-- !sidebar ********************* -->
+    <?php use app\core\Application; ?>
+
+    
     <div class="container d-md-flex justify-content-between">
       <!-- Page Content  -->
       <div class="d-flex flex-column w-100">
@@ -43,7 +46,6 @@
 
 
         </div>
-        <?php use app\core\Application; ?>
 
         <div class="d-flex flex-row justify-content-between flex-wrap">
             <div>
