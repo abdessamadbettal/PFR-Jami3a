@@ -32,11 +32,11 @@ abstract class DbModel extends Model
     {
         $tableName = $this->tableName();
         $attributes = $this->attributes();
-        $params = array_map(fn ($attr) => ":$attr", $attributes);
+        $params = array_map(fn ($attr) => ":$attr", $attributes); // [':id', ':name', ':email', ':password']
         $statement = self::prepare("INSERT INTO $tableName (" . implode(",", $attributes) . ") 
-                VALUES (" . implode(",", $params) . ")");
-        foreach ($attributes as $attribute) {
-            $statement->bindValue(":$attribute", $this->{$attribute});
+                VALUES (" . implode(",", $params) . ")"); // INSERT INTO users (id, name, email, password) VALUES (:id, :name, :email, :password)
+        foreach ($attributes as $attribute) { // [':id' => 1, ':name' => 'John', ':email' => '
+            $statement->bindValue(":$attribute", $this->{$attribute}); // bindValue(':id', 1) 
         }
         $statement->execute();
         return true;
@@ -50,9 +50,9 @@ abstract class DbModel extends Model
         // echo "<pre>";
         // print_r($attributes);
         // echo "</pre>";
-        echo "<pre>";
-        print_r($params);
-        echo "</pre>";
+        // echo "<pre>";
+        // print_r($params);
+        // echo "</pre>";
         // echo $this->{$attribute} ;
 
 
@@ -71,7 +71,7 @@ abstract class DbModel extends Model
         
         $statement = self::prepare("UPDATE $tableName SET status = 1 WHERE document_id = $id");
         
-        $statement->execute();
+        $statement->execute(); 
         return true;
         
     }
@@ -239,14 +239,14 @@ abstract class DbModel extends Model
     public static function findOne($where) // Array ( [email] => amin@gmail.com )
     {
         $tableName = static::tableName();
-        $attributes = array_keys($where); // Array ( [0] => email )
+        $attributes = array_keys($where); // Array ( [0] => email ) // pour récupérer les clés du tableau
         $sql = implode("AND", array_map(fn ($attr) => "$attr = :$attr", $attributes)); // email = :email
         
         $statement = self::prepare("SELECT * FROM $tableName WHERE $sql");
-        foreach ($where as $key => $item) {
-            $statement->bindValue(":$key", $item);
+        foreach ($where as $key => $item) { // $key = email , $item =
+            $statement->bindValue(":$key", $item);  // $statement->bindValue(":email", "
         }
         $statement->execute();
-        return $statement->fetchObject(static::class);
+        return $statement->fetchObject(static::class); // return un objet de la classe courante
     }
 }

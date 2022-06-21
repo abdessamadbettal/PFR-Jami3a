@@ -161,7 +161,7 @@ class Router
             $callback = $this->getCallback(); // for sucurite
 
             if ($callback === false) {
-                throw new NotFoundException();
+                throw new NotFoundException(); //* if url not exist in route map throw exception 404
             }
         }
         if (is_string($callback)) {

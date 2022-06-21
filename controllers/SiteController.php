@@ -98,7 +98,7 @@ class SiteController extends Controller
             // exit ;if
             $registerModel->loadData($request->getBody());
             if ($registerModel->validate() && $registerModel->save()) {
-                Application::$app->session->setFlash('success', 'Thanks for registering');
+                Application::$app->session->setFlash('success', 'admin est ajouté avec succès');
                 Application::$app->response->redirect('/');
                 return 'Show success page';
             }

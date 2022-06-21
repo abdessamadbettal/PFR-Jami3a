@@ -18,7 +18,7 @@ use app\core\db\Database;
  */
 class Application
 {
-    const EVENT_BEFORE_REQUEST = 'beforeRequest';
+    const EVENT_BEFORE_REQUEST = 'beforeRequest'; 
     const EVENT_AFTER_REQUEST = 'afterRequest';
 
     protected array $eventListeners = [];
@@ -29,11 +29,11 @@ class Application
     public Router $router;
     public Request $request;
     public Response $response;
-    public ?Controller $controller = null;
+    public ?Controller $controller = null; 
     public Database $db;
     public Session $session;
     public View $view;
-    public ?UserModel $user;
+    public ?UserModel $user; // ? means that user can be null
 
     public function __construct($rootDir, $config)
     {
@@ -91,14 +91,14 @@ class Application
 
     public function run()
     {
-        $this->triggerEvent(self::EVENT_BEFORE_REQUEST);
+        $this->triggerEvent(self::EVENT_BEFORE_REQUEST); //  pour lancer l'event beforeRequest 
         try {
             echo $this->router->resolve();
-        } catch (\Exception $e) {
+        } catch (\Exception $e) { //* catch the exception if the url is not found
             echo $this->router->renderView('_error', [
                 'exception' => $e,
-            ]);
-        }
+            ]); //* render the error view
+        }  // pour lancer l'event afterRequest
     }
 
     public function triggerEvent($eventName)

@@ -108,9 +108,9 @@ class LibiraryController extends Controller
         $document = new DocumentModel();
         $document->selectDocument($_GET['id']);
         // $document->selectModules($document->)
-        echo '<pre>';
-        var_dump($document->DocumentList[0]);
-        echo '</pre>';
+        // echo '<pre>';
+        // var_dump($document->DocumentList[0]);
+        // echo '</pre>';
         // exit;
         $document->selectYear();
         if ($request->getMethod() === 'post') {
@@ -121,7 +121,7 @@ class LibiraryController extends Controller
             move_uploaded_file($tempname, $folder);
             $document->update($_GET['id']);
             Application::$app->response->redirect('/libirary');
-            Application::$app->session->setFlash('success', ' the document is updaet succefuly');
+            Application::$app->session->setFlash('success', ' the document is updated succefuly');
         }
         $document->loadData($document->DocumentList[0]);
         return $this->render('updatedocument', [
@@ -203,7 +203,7 @@ class LibiraryController extends Controller
             // print_r($document) ;
             $document->masquer($_GET['id']);
             Application::$app->response->redirect('/libirary');
-            Application::$app->session->setFlash('success', 'le document est accepte avec succes');
+            Application::$app->session->setFlash('success', 'le document est masquer avec succes');
         }
     }
 }

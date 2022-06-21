@@ -2274,7 +2274,7 @@
     </section>
     <!-- ? category -->
     <section class="container mt-4">
-      <p class=" mt-4 fw-bolder h2">choisir votre catégorie :</p>
+      <p class=" mt-4 fw-bolder h2">choisir votre Specialite :</p>
 <div class="row g-3 ">
   
   <!-- ? -->
@@ -2339,7 +2339,7 @@
   </div>
   <!-- ? -->
   <div class="col-6 col-md-4 col-lg-3 pt-3">
-    <a href="/libirary" class="text-decoration-none">
+    <a href="/libirary?specialite=mathematique" class="text-decoration-none">
     <div class="d-flex flex-column justify-content-center align-items-center" >
       
       <div class="bg-light" id="bg-category"  style="width: 90%;">
@@ -2354,7 +2354,7 @@
   </div>
   <!-- ? -->
   <div class="col-6 col-md-4 col-lg-3 pt-3">
-    <a href="/libirary" class="text-decoration-none">
+    <a href="/libirary?specialite=droit" class="text-decoration-none">
     <div class="d-flex flex-column justify-content-center align-items-center" >
       
       <div class="bg-light" id="bg-category"  style="width: 90%;">
@@ -2369,7 +2369,7 @@
   </div>
   <!-- ? -->
   <div class="col-6 col-md-4 col-lg-3 pt-3">
-    <a href="/libirary" class="text-decoration-none">
+    <a href="/libirary?specialite=chimie" class="text-decoration-none">
     <div class="d-flex flex-column justify-content-center align-items-center" >
       
       <div class="bg-light" id="bg-category"  style="width: 90%;">
@@ -2384,7 +2384,7 @@
   </div>
   <!-- ? -->
   <div class="col-6 col-md-4 col-lg-3 pt-3">
-    <a href="/libirary" class="text-decoration-none">
+    <a href="/libirary?specialite=geologie" class="text-decoration-none">
     <div class="d-flex flex-column justify-content-center align-items-center" >
       
       <div class="bg-light" id="bg-category"  style="width: 90%;">
