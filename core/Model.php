@@ -27,24 +27,14 @@ class Model
 
     public array $errors = [];
 
-    public function loadData($data)
+    public function loadData($data) // $data = $_POST or $_GET
     {
         foreach ($data as $key => $value) {
-        // echo '<pre>';
-        // print_r($data) ;
-        // echo $key ;
-        // echo '</pre>';
         // ! tcheck is the propriete existe in publierform 
         // ! 1 arg class qui se trouve les proprietes and 2 arg is the propriete for tcheck 
-        if (property_exists($this, $key)) {
-            // echo '<pre>';
-            // print_r($this) ;
-            // echo $key ;
-            // echo '</pre>';
-            $this->{$key} = $value;
-            // echo $this->{$key} ;
-            }
-            // exit ;
+        if (property_exists($this, $key)) { // if the property existe in the class
+            $this->{$key} = $value; // set the value of the property
+            } 
         }
     }
 
@@ -60,11 +50,6 @@ class Model
 
     public function getLabel($attribute)  //* donne le label de la propriete
     {
-        // echo "attribite : " . $attribute ;
-        // echo '<pre>';
-        // print_r($this->labels()[$attribute]) ;
-        // echo '</pre>';
-        // exit ;
         return $this->labels()[$attribute] ?? $attribute; //* si le label existe on le renvoie sinon on renvoie la propriete
     }
 
@@ -73,41 +58,41 @@ class Model
         return [];
     }
 
-    public function validate()
+    public function validate() // * verifie si les donnees sont valides
     {
-        foreach ($this->rules() as $attribute => $rules) {
-            $value = $this->{$attribute}; //* value of the input
-            foreach ($rules as $rule) { //* rules of the input
-                $ruleName = $rule;
-                if (!is_string($rule)) { //* if the rule is not string
-                    $ruleName = $rule[0]; //* get the name of the rule
+        foreach ($this->rules() as $attribute => $rules) { //* pour chaque propriete de la class on va verifier les regles 
+            $value = $this->{$attribute}; //* value = name 
+            foreach ($rules as $rule) { //* rules = required, email, min, max, match, unique
+                $ruleName = $rule; //* ruleName = required
+                if (!is_string($rule)) { //*  si rule est un tableau 
+                    $ruleName = $rule[0]; //*  ruleName = required
                 }
-                if ($ruleName === self::RULE_REQUIRED && !$value) { //* if the rule is required and the value is empty
-                    $this->addErrorByRule($attribute, self::RULE_REQUIRED);
+                if ($ruleName === self::RULE_REQUIRED && !$value) { //* si ruleName = required et value est vide
+                    $this->addErrorByRule($attribute, self::RULE_REQUIRED); //* on ajoute une erreur
                 }
-                if ($ruleName === self::RULE_EMAIL && !filter_var($value, FILTER_VALIDATE_EMAIL)) {
-                    $this->addErrorByRule($attribute, self::RULE_EMAIL);
+                if ($ruleName === self::RULE_EMAIL && !filter_var($value, FILTER_VALIDATE_EMAIL)) { //* si ruleName = email et value n'est pas un email
+                    $this->addErrorByRule($attribute, self::RULE_EMAIL); //* on ajoute une erreur
                 }
-                if ($ruleName === self::RULE_MIN && strlen($value) < $rule['min']) {
-                    $this->addErrorByRule($attribute, self::RULE_MIN, ['min' => $rule['min']]);
+                if ($ruleName === self::RULE_MIN && strlen($value) < $rule['min']) { //* si ruleName = min et value est inferieur a min
+                    $this->addErrorByRule($attribute, self::RULE_MIN, ['min' => $rule['min']]); //* on ajoute une erreur
                 }
-                if ($ruleName === self::RULE_MAX && strlen($value) > $rule['max']) {
-                    $this->addErrorByRule($attribute, self::RULE_MAX);
+                if ($ruleName === self::RULE_MAX && strlen($value) > $rule['max']) { //* si ruleName = max et value est superieur a max
+                    $this->addErrorByRule($attribute, self::RULE_MAX); //* on ajoute une erreur
                 }
-                if ($ruleName === self::RULE_MATCH && $value !== $this->{$rule['match']}) {
-                    $this->addErrorByRule($attribute, self::RULE_MATCH, ['match' => $rule['match']]);
+                if ($ruleName === self::RULE_MATCH && $value !== $this->{$rule['match']}) { //* si ruleName = match et value n'est pas egale a match
+                    $this->addErrorByRule($attribute, self::RULE_MATCH, ['match' => $rule['match']]); //* on ajoute une erreur
                 }
-                if ($ruleName === self::RULE_UNIQUE) {
-                    $className = $rule['class'];
-                    $uniqueAttr = $rule['attribute'] ?? $attribute;
-                    $tableName = $className::tableName();
+                if ($ruleName === self::RULE_UNIQUE) { //* si ruleName = unique
+                    $className = $rule['class']; //* className = User
+                    $uniqueAttr = $rule['attribute'] ?? $attribute; //* uniqueAttr = name
+                    $tableName = $className::tableName(); //* tableName = users
                     $db = Application::$app->db;
-                    $statement = $db->prepare("SELECT * FROM $tableName WHERE $uniqueAttr = :$uniqueAttr");
-                    $statement->bindValue(":$uniqueAttr", $value);
+                    $statement = $db->prepare("SELECT * FROM $tableName WHERE $uniqueAttr = :$uniqueAttr"); //* statement = SELECT * FROM users WHERE name = :name
+                    $statement->bindValue(":$uniqueAttr", $value); //* statement = SELECT * FROM users WHERE name = name
                     $statement->execute();
                     $record = $statement->fetchObject();
                     if ($record) {
-                        $this->addErrorByRule($attribute, self::RULE_UNIQUE);
+                        $this->addErrorByRule($attribute, self::RULE_UNIQUE); //* on ajoute une erreur
                     }
                 }
             }
@@ -132,19 +117,19 @@ class Model
         return $this->errorMessages()[$rule];
     }
 
-    protected function addErrorByRule(string $attribute, string $rule, $params = [])
+    protected function addErrorByRule(string $attribute, string $rule, $params = []) 
     {
-        $params['field'] ??= $attribute;
-        $errorMessage = $this->errorMessage($rule);
-        foreach ($params as $key => $value) {
-            $errorMessage = str_replace("{{$key}}", $value, $errorMessage);
+        $params['field'] ??= $attribute; //* si params['field'] n'existe pas on le cree avec attribute -> if( !isset($params['field'])) { $params['field'] = $attribute; }
+        $errorMessage = $this->errorMessage($rule); //* errorMessage = This field is required
+        foreach ($params as $key => $value) { //* foreach ($params as $key => $value) { $key = 'min'; $value = '5'; }
+            $errorMessage = str_replace("{{$key}}", $value, $errorMessage); //* errorMessage = This field must be valid email address
         }
-        $this->errors[$attribute][] = $errorMessage;
+        $this->errors[$attribute][] = $errorMessage; //* errors[name][] = This field is required
     }
 
-    public function addError(string $attribute, string $message)
+    public function addError(string $attribute, string $message) //* ajoute une erreur
     {
-        $this->errors[$attribute][] = $message;
+        $this->errors[$attribute][] = $message; //* errors[name][] = This field is required
     }
 
     public function hasError($attribute)
@@ -153,12 +138,12 @@ class Model
         // print_r($this->errors) ;
         // echo '</pre>';
         // exit ;
-        return $this->errors[$attribute] ?? false;
+        return $this->errors[$attribute] ?? false; //* si errors[name] existe on le renvoie sinon on renvoie false
     }
 
     public function getFirstError($attribute)
     {
-        $errors = $this->errors[$attribute] ?? [];
-        return $errors[0] ?? '';
+        $errors = $this->errors[$attribute] ?? []; //* si errors[name] existe on le renvoie sinon on renvoie false
+        return $errors[0] ?? ''; //* si errors[name][0] existe on le renvoie sinon on renvoie false
     }
 }

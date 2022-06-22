@@ -19,27 +19,27 @@ class Session
 {
     protected const FLASH_KEY = 'flash_messages';
 
-    public function __construct()
+    public function __construct() //* pour initialiser la session
     {
-        session_start();
-        $flashMessages = $_SESSION[self::FLASH_KEY] ?? [];
-        foreach ($flashMessages as $key => &$flashMessage) {
-            $flashMessage['remove'] = true;
+        session_start(); //* pour initialiser la session
+        $flashMessages = $_SESSION[self::FLASH_KEY] ?? []; //* pour recuperer les messages flash
+        foreach ($flashMessages as $key => &$flashMessage) { //* pour chaque message flash
+            $flashMessage['remove'] = true; //* pour le supprimer
         }
-        $_SESSION[self::FLASH_KEY] = $flashMessages;
+        $_SESSION[self::FLASH_KEY] = $flashMessages; //* pour les mettre dans la session
     }
 
-    public function setFlash($key, $message)
+    public function setFlash($key, $message) //* pour mettre un message flash
     {
-        $_SESSION[self::FLASH_KEY][$key] = [
-            'remove' => false,
-            'value' => $message
+        $_SESSION[self::FLASH_KEY][$key] = [ //* pour mettre le message flash dans la session
+            'remove' => false, ///* pour ne pas le supprimer
+            'value' => $message //* pour le mettre dans la session
         ];
     }
 
-    public function getFlash($key)
+    public function getFlash($key) //* pour recuperer un message flash
     {
-        return $_SESSION[self::FLASH_KEY][$key]['value'] ?? false;
+        return $_SESSION[self::FLASH_KEY][$key]['value'] ?? false;  //* pour recuperer le message flash
     }
 
     public function set($key, $value) //* set session variable with key and value
@@ -48,29 +48,29 @@ class Session
     }
 
     // ! get id account from session
-    public function get($key)
+    public function get($key) //* get session variable with key
     {
-        return $_SESSION[$key] ?? false;
+        return $_SESSION[$key] ?? false; //* get session variable with key
     }
 
-    public function remove($key)
+    public function remove($key) //* remove session variable with key
     {
-        unset($_SESSION[$key]);
+        unset($_SESSION[$key]); //* remove session variable with key
     }
 
-    public function __destruct()
+    public function __destruct() //* pour fermer la session
     {
-        $this->removeFlashMessages();
+        $this->removeFlashMessages(); //* pour supprimer les messages flash
     }
 
-    private function removeFlashMessages()
+    private function removeFlashMessages() 
     {
-        $flashMessages = $_SESSION[self::FLASH_KEY] ?? [];
-        foreach ($flashMessages as $key => $flashMessage) {
-            if ($flashMessage['remove']) {
-                unset($flashMessages[$key]);
+        $flashMessages = $_SESSION[self::FLASH_KEY] ?? []; //* pour recuperer les messages flash
+        foreach ($flashMessages as $key => $flashMessage) { //* pour chaque message flash
+            if ($flashMessage['remove']) { //* si le message doit etre supprimer
+                unset($flashMessages[$key]); //* pour supprimer le message flash
             }
         }
-        $_SESSION[self::FLASH_KEY] = $flashMessages;
+        $_SESSION[self::FLASH_KEY] = $flashMessages; //* pour les mettre dans la session
     }
 }

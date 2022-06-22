@@ -30,18 +30,11 @@ class Request
 
     public function getUrl() //* get the url sans ??
     {
-        // echo '<pre>';
-        // print_r($_SERVER);
-        // echo '</pre>';
         $path = $_SERVER['REQUEST_URI']; // /thecodeholic/mvc/public/home cad url 
         $position = strpos($path, '?'); // position de la question mark
-        // var_dump($position ) ;
-        // exit ;
         if ($position !== false) { // si la position de la question mark existe
             $path = substr($path, 0, $position);
         }
-        // echo $path;
-        // exit ;
         return $path;
     }
 
@@ -66,28 +59,14 @@ class Request
         if ($this->isPost()) {
 
             if (isset($_FILES['file'])) {
-                // var_dump($_FILES['file']);
-                # code...
                 foreach ($_FILES['file'] as $key => $value) {
                     $data[$key] = $value; //* pour avoir le nom du fichier
                 }
-                // var_dump($data);
             }
-            // print_r($_POST);
-
-            // echo $_FILES["file"]["name"] ;
             foreach ($_POST as $key => $value) {
                 $data[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
             }
         }
-        // echo "<pre> data :   ";
-        // var_dump($data);
-        // echo "</pre>";
-        // echo '<pre>';
-        // print_r($data) ;
-        // echo '</pre>';
-        // exit ;
-        // exit ;
         return $data;
     }
 

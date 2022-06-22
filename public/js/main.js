@@ -7,13 +7,13 @@ $(document).ready(function() {
     console.log(specialite_name);
     console.log('ok');
     $.ajax({
-        url: "/modulesajax",
-        type: "GET",
-        data: {
-            specialite_id: specialite_name
+        url: "/modulesajax", // pour faire appel à la route modulesajax
+        type: "GET", 
+        data: { // pour envoyer des données à la route modulesajax
+            specialite_id: specialite_name // pour envoyer l'id de la specialite
         },
-        cache: false,
-        success: function(result){
+        cache: false, // pour ne pas utiliser le cache de la requête Ajax
+        success: function(result){ // pour récupérer le résultat de la requête Ajax
             console.log(result);
         $("#modules").html(result);
         $('#searchButton').html('<button type="submit" class="btn btn-danger w-100  rounded-3 border-2 fw-bolder  text-center " style="height: 89% ; margin-top : 1px ;">Rechercher</button>'); 
@@ -23,10 +23,6 @@ $(document).ready(function() {
     // loadState($(this).find(':selected').val())
 });
 const publierForm = document.getElementById("publierForm");
-// const username = document.getElementById("username");
-// const email = document.getElementById("email1");
-// const password = document.getElementById("pas1");
-// const password2 = document.getElementById("pas2");
 let valid = true;
 console.log(publierForm);
 // console.log(email);
