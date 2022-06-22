@@ -49,6 +49,7 @@ class LibiraryController extends Controller
             $document = new DocumentModel();
             $document->selcetSpecialites();
             foreach ($document->SpecialitesList as $specialite) {
+                // var_dump($specialite);
                 $document->selectModules($specialite['specialite']);
                 if ($_GET['specialite'] == $specialite['specialite']) {
                     if (isset($_GET['modules'])) {

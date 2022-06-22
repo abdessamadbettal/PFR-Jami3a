@@ -40,11 +40,7 @@ use app\core\form\Form;
                 <option value="">specialite</option>
                   <option value="1">biologie</option>
                   <option value="2">economie</option>
-                  <!-- <option selected>spécialité ...</option>
-                  <option value="droit">droit</option>
-                  <option value="chimie">chimie</option>
-                  <option value="physique">physique</option>
-                  <option value="informatique">informatique</option> -->
+                  <option value="6">informatique</option>
                 </select>
               </div>
               <div class="form-outline w-50 ">

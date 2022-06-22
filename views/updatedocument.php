@@ -37,17 +37,13 @@ use app\core\form\Form;
                 <option value="">specialite</option>
                 <option value="1">biologie</option>
                   <option value="2">economie</option>
+                  <option value="6">informatique</option>
                 </select>
               </div>
               <div class="form-outline w-50 ">
                 <select name="fk_modele" id="modules" class="form-select" aria-label="Default select example"> 
                 <option value="">Module</option> 
                 <option value="<?php echo $model->fk_modele ;  ?>" selected><?php echo $document['modele'] ;  ?></option>              
-                  <!-- <option selected>modele ...</option>
-                  <option value="1">genetique</option>
-                  <option value="2">comtabilite</option>
-                  <option value="3">immunologie</option>
-                  <option value="4">microbiologie</option>            -->
                 </select>
               </div>
               <div class="form-outline w-50 ">
